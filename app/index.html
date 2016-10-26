@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css" type="text/css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
     <link rel="stylesheet" href="../node_modules/angular-ui-grid/ui-grid.css" type="text/css">
 
 
@@ -43,15 +43,12 @@
             set
         </button>
 
-
     <!-- Button trigger modal -->
 
-    <button type="button" class="btn btn-primary btn-lg" ng-click="getCurrentFocus()" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="btn btn-primary btn-lg" ng-click="getRow()" data-toggle="modal" data-target="#myModal">
         edit
     </button>
-   <!-- <button type="button" class="btn btn-success" ng-click="getCurrentFocus()">Get Current focused cell</button>
-    <span ng-bind="currentFocused"></span>-->
-    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -62,20 +59,17 @@
                     <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <div ng-controller="StudentController">
-                        <form novalidate class="simple-form">
-                            Id: <input type="number"  class="form-control" ng-model="user.number"/><br/>
-                            First Name: <input type="text" class="form-control" ng-model="user.name"/><br/>
-                            Last Name: <input type="text" class="form-control" ng-model="user.surname"/><br/>
-                            Company:<input type="text" class="form-control" ng-model="user.patronymic"/><br/>
-                            <input type="submit" ng-click="save(user)" value="Submit"/>
+                            <!-- Form -->
+                        <form name="editForm" class="simple-form">
+                            Id: <input  type="number"  class="form-control" ng-model="user.id" required/><br/>
+                            First Name: <input type="text" class="form-control" ng-model="user.firstName" required/><br/>
+                            Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
+                            Company:<input type="text" class="form-control" ng-model="user.company"  required /><br/>
+                            <input type="submit" class="btn btn-primary" ng-click="save()" value="Submit" ng-disabled="editForm.$invalid"/>
                         </form>
-                    </div>
+
                 </div>
-                <!-- <div class="modal-footer">
-                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                   <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>-->
+                </div>
             </div>
         </div>
     </div>
@@ -85,17 +79,15 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
-<script src="app.css" type="text/css"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
 <script src="../node_modules/angular-ui-grid/ui-grid.min.js"></script>
 <script src="../node_modules/angular-touch/angular-touch.js"></script>
 <script src="../node_modules/angular-animate/angular-animate.js"></script>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
-
-<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/jQuery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
 </body>
 </html>
