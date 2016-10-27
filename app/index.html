@@ -50,7 +50,7 @@
     <button type="button" class="btn btn-primary btn-lg" ng-click="getRow()" data-toggle="modal" data-target="#myModal">
         edit
     </button>
-        <div>{{name.first}}</div>
+        <div>{{name}}</div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -66,7 +66,9 @@
                             Id: <input  type="number"  class="form-control" ng-model="user.id" required/><br/>
                             First Name: <input type="text" class="form-control" ng-model="user.firstName" required/><br/>
                             Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
-                            Company:<input type="text" class="form-control" ng-model="user.company"  required /><br/>
+                            <!--<ng-typeahead ng-model="user.company" data="name">-->
+                            Company:<input type="text" class="form-control" ng-model="user.company"  typeahead="name for state in names | filter:$viewValue | limitTo:2" required /><br/>
+                            <!--</ng-typeahead>-->
                             <input type="submit" class="btn btn-primary" ng-click="save()" value="Submit" ng-disabled="editForm.$invalid"/>
                         </form>
 

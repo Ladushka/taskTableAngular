@@ -2,10 +2,7 @@
 var dataBuf={};
 var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning'])
 .service('dataCompanyService',  function(){
-    this.name = {
-        first: 'Alice',
-        last: 'Green'
-    };
+    this.names = [ "Exadel", "Epam", "MainSoft", "InnovationGroup", "Belvest", "Anderson"];
 
 
     /* var companies= [ "Exadel", "Epam", "MainSoft", "InnovationGroup", "Belvest", "Anderson"];
@@ -80,8 +77,8 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
             $('#myModal').modal('hide')
     };
         ///Развлекаловка с сервисами
-    $scope.name = dataCompanyService.name;
-    console.log($scope.name.first );
+    $scope.names = dataCompanyService.names;
+    console.log($scope.names );
 }]);
 
 
