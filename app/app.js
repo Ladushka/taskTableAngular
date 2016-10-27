@@ -1,6 +1,6 @@
 
 var dataBuf={};
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning'])
+var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning','ui.bootstrap'])
 .service('dataCompanyService',  function(){
     this.names = [ "Exadel", "Epam", "MainSoft", "InnovationGroup", "Belvest", "Anderson"];
 
@@ -32,6 +32,7 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
         {name: 'id'},
         {name: 'firstName'},
         {name: 'lastName'},
+        {name: 'date'},
         {name: 'company'}
     ];
 
@@ -41,7 +42,6 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
         .success(function (data) {
             dataBuf=data;
             $scope.gridOptions.data = data;
-            console.log('success', result);
         })
         .error(function (result) {
             console.log('error', result);
@@ -77,8 +77,24 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
             $('#myModal').modal('hide')
     };
         ///Развлекаловка с сервисами
+
     $scope.names = dataCompanyService.names;
     console.log($scope.names );
 }]);
+/*
+app.factory("States", function(){
+    var states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
 
+    return states;
 
+});
+
+// setup controller and pass data source
+app.controller("TypeaheadCtrl", function($scope, States) {
+
+    $scope.selected = undefined;
+
+    $scope.states = States;
+
+});
+*/

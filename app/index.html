@@ -18,8 +18,10 @@
     <link rel="stylesheet" href="app.css" type="text/css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" type="text/css">
     <link rel="stylesheet" href="../node_modules/angular-ui-grid/ui-grid.css" type="text/css">
-
+    <link rel="stylesheet" href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -50,7 +52,7 @@
     <button type="button" class="btn btn-primary btn-lg" ng-click="getRow()" data-toggle="modal" data-target="#myModal">
         edit
     </button>
-        <div>{{name}}</div>
+        <div date-picker="dates.today" id="pickerBothDatesDiv" min-date="minDate" max-date="maxDate" view="date" min-view="hours" timezone="UTC" watch-direct-changes="true"></div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -60,15 +62,27 @@
                             aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" >
                             <!-- Form -->
                         <form name="editForm" class="simple-form">
                             Id: <input  type="number"  class="form-control" ng-model="user.id" required/><br/>
                             First Name: <input type="text" class="form-control" ng-model="user.firstName" required/><br/>
                             Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
-                            <!--<ng-typeahead ng-model="user.company" data="name">-->
-                            Company:<input type="text" class="form-control" ng-model="user.company"  typeahead="name for state in names | filter:$viewValue | limitTo:2" required /><br/>
-                            <!--</ng-typeahead>-->
+
+                            <div class='input-group date' id='datetimepicker1'>
+                            Date: <input class="form-control" ng-model="user.date" required/><br/>
+                                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                            </div>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+                            </script>
+
+                            Company:<input id="names" type="text" class="form-control" ng-model="user.company"  typeahead="name for name in names | filter:$viewValue | limitTo:8" required /><br/>
+
                             <input type="submit" class="btn btn-primary" ng-click="save()" value="Submit" ng-disabled="editForm.$invalid"/>
                         </form>
 
@@ -92,7 +106,11 @@
 <script src="../node_modules/angular-animate/angular-animate.js"></script>
 <script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
+<script src="../node_modules/ng-typeahead/dist/ng-typeahead.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 </body>
 </html>
