@@ -27,6 +27,8 @@
 
 <div ng-app="app">
     <div ng-controller="MainCtrl">
+
+
         <!-- Table -->
         <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination class="grid"></div>
         <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
@@ -48,7 +50,7 @@
     <button type="button" class="btn btn-primary btn-lg" ng-click="getRow()" data-toggle="modal" data-target="#myModal">
         edit
     </button>
-
+        <div>{{name.first}}</div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -72,6 +74,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 
