@@ -13,14 +13,14 @@
     <title>My AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="bower_components/jQuery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css" type="text/css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" type="text/css">
     <link rel="stylesheet" href="../node_modules/angular-ui-grid/ui-grid.css" type="text/css">
-    <link rel="stylesheet" href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" type="text/css">
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -64,20 +64,22 @@
                 </div>
                 <div class="modal-body" >
                             <!-- Form -->
-                        <form name="editForm" class="simple-form">
+                        <form name="editForm" novalidate class="simple-form">
                             Id: <input  type="number"  class="form-control" ng-model="user.id" required/><br/>
+                            <span ng-show="editForm.id.$invalid">You break my heart</span>
                             First Name: <input type="text" class="form-control" ng-model="user.firstName" required/><br/>
                             Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
 
                             <div class='input-group date' id='datetimepicker1'>
-                            Date: <input class="form-control" ng-model="user.date" required/><br/>
+                            Date: <input id="d" type="text" class="form-control" ng-model="user.date" data-date-format="YYYY/MM/DD" required/><br/>
                                 <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                             </div>
                             <script type="text/javascript">
                                 $(function () {
-                                    $('#datetimepicker1').datetimepicker();
+                                    $('#datetimepicker1').datetimepicker(
+                                    );
                                 });
                             </script>
 
@@ -97,20 +99,17 @@
 </div>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
-<script src="app.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
 <script src="../node_modules/angular-ui-grid/ui-grid.min.js"></script>
 <script src="../node_modules/angular-touch/angular-touch.js"></script>
 <script src="../node_modules/angular-animate/angular-animate.js"></script>
-<script src="bower_components/jQuery/dist/jquery.min.js"></script>
 <script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-<script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
+<script src="app.js"></script>
 <script src="../node_modules/ng-typeahead/dist/ng-typeahead.js"></script>
 <script src="bower_components/moment/moment.js"></script>
-<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
 </body>
 </html>

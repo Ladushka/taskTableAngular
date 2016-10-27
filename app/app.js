@@ -1,25 +1,12 @@
 
 var dataBuf={};
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning','ui.bootstrap'])
+var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning'])
 .service('dataCompanyService',  function(){
     this.names = [ "Exadel", "Epam", "MainSoft", "InnovationGroup", "Belvest", "Anderson"];
-
-
-    /* var companies= [ "Exadel", "Epam", "MainSoft", "InnovationGroup", "Belvest", "Anderson"];
-     return {
-     companies: function() {
-     return companies;
-     }
-     */
 })
 .controller('MainCtrl', ['$scope', '$http','dataCompanyService', function ($scope, $http,dataCompanyService) {
     /* Table*/
     $scope.currentFocused = "";
-    //$scope.rowCol;
-    /*$scope.dataCompanyService=dataCompanyService;
-    console.log($scope.dataCompanyService);*/
-   // $scope.name = dataCompanyService.modifierKeysToMultiSelectCells;
-    //console.log($scope.name);
 
     
     $scope.gridOptions = {
@@ -70,8 +57,6 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
         $scope.gridApi = gridApi;
     };
 
-    $scope.master = {};
-
     $scope.save = function () {
             $scope.user={};
             $('#myModal').modal('hide')
@@ -81,20 +66,3 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
     $scope.names = dataCompanyService.names;
     console.log($scope.names );
 }]);
-/*
-app.factory("States", function(){
-    var states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
-
-    return states;
-
-});
-
-// setup controller and pass data source
-app.controller("TypeaheadCtrl", function($scope, States) {
-
-    $scope.selected = undefined;
-
-    $scope.states = States;
-
-});
-*/

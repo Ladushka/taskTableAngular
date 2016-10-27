@@ -4,7 +4,7 @@
     "firstName": "Cox",
     "lastName": "Carney",
     "company": "Enormo",
-    "date": "1920.01.01",
+    "date": "2016/10/20",
     "employed": true
   },
   {
@@ -12,7 +12,7 @@
     "firstName": "Lorraine",
     "lastName": "Wise",
     "company": "Comveyer",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -20,7 +20,7 @@
     "firstName": "Nancy",
     "lastName": "Waters",
     "company": "Fuelton",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -28,7 +28,7 @@
     "firstName": "Cox",
     "lastName": "Carney",
     "company": "Enormo",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": true
   },
   {
@@ -36,7 +36,7 @@
     "firstName": "Lorraine",
     "lastName": "Wise",
     "company": "Comveyer",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -44,7 +44,7 @@
     "firstName": "Nancy",
     "lastName": "Waters",
     "company": "Fuelton",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -52,7 +52,7 @@
     "firstName": "Cox",
     "lastName": "Carney",
     "company": "Enormo",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": true
   },
   {
@@ -60,7 +60,7 @@
     "firstName": "Lorraine",
     "lastName": "Wise",
     "company": "Comveyer",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -68,7 +68,7 @@
     "firstName": "Nancy",
     "lastName": "Waters",
     "company": "Fuelton",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -76,7 +76,7 @@
     "firstName": "Cox",
     "lastName": "Carney",
     "company": "Enormo",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": true
   },
   {
@@ -84,7 +84,7 @@
     "firstName": "Lorraine",
     "lastName": "Wise",
     "company": "Comveyer",
-    "date": "1920-01-01",
+    "date": "2016/10/20",
     "employed": false
   },
   {
@@ -92,7 +92,7 @@
     "firstName": "Nancy",
     "lastName": "Waters",
     "company": "Fuelton",
-    "date": "1920.01.01",
+    "date": "2016/10/20",
     "employed": false
   }
 ]
