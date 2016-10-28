@@ -1,14 +1,14 @@
 
 var dataBuf={};
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning'])
-.service('dataCompanyService',  function(){
-    this.names = [ "Exadel", "Epam", "MainSoft", "InnovationGroup", "Belvest", "Anderson"];
-})
-.controller('MainCtrl', ['$scope', '$http','dataCompanyService', function ($scope, $http,dataCompanyService) {
+var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning','ui.bootstrap','ngAnimate', 'ngSanitize'])
+
+
+app.controller('MainCtrl', ['$scope', '$http','$uibModal','$log', '$document', function ($scope, $http,$uibModal, $log, $document,$uibModalInstance) {
     /* Table*/
     $scope.currentFocused = "";
+    var $ctrl = this;
+    $ctrl.animationsEnabled = true;
 
-    
     $scope.gridOptions = {
         modifierKeysToMultiSelectCells: true,
         enablePaginationControls: false,
@@ -23,7 +23,7 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
         {name: 'company'}
     ];
 
-    
+
             /*GetInformation*/
     $http.get('repository.json')
         .success(function (data) {
@@ -38,13 +38,14 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
 
     $scope.getRow = function () {
         $scope.rowCol = $scope.gridApi.cellNav.getFocusedCell();
-        if ($scope.rowCol !== null) {            
+        if ($scope.rowCol !== null) {
             $scope.user=dataBuf.filter(function (item) {
                 return (item.id==$scope.rowCol.row.entity.id);
             });
             $scope.user=$scope.user[0];
-        }       
-        
+        }
+        $ctrl.open('lg');
+        $ctrl.user=$scope.user;
     };
 
         /*PaginationPageSize*/
@@ -58,11 +59,78 @@ var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui
     };
 
     $scope.save = function () {
-            $scope.user={};
-            $('#myModal').modal('hide')
+        $scope.user={};
+$ctrl.close;
+
     };
+
+
+
         ///Развлекаловка с сервисами
 
-    $scope.names = dataCompanyService.names;
-    console.log($scope.names );
+
+    $ctrl.open = function (size, parentSelector) {
+
+        console.log("work");
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.app ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $ctrl.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'myModalContent.html',
+            controller:  'ModalInstanceCtrl',
+            controllerAs: '$ctrl',
+            size: size,
+            appendTo: parentElem,
+            scope:$scope
+        });
+
+    };
+
+///////data
+/*----------------------------*/
+
+
+    function disabled(data) {
+        var date = data.date,
+            mode = data.mode;
+        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+    }
+
+
+    $scope.open1 = function() {
+        $scope.popup1.opened = true;
+    };
+
+    $scope.popup1 = {
+        opened: false
+    };
+    function disabled(data) {
+        var date = data.date,
+            mode = data.mode;
+        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+    }
+    $scope.dateOptions = {
+        dateDisabled: disabled,
+        formatYear: 'yyyy',
+        maxDate: new Date(2020, 5, 22),
+        minDate: new Date(),
+        startingDay: 1
+    };
+
+    $scope.altInputFormats = ['M!/d!/yyyy'];
+
 }]);
+
+
+app.controller('ModalInstanceCtrl', function ($uibModalInstance) {
+    var $ctrl = this;
+
+    $ctrl.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+});
+
+
+
