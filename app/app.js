@@ -22,7 +22,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', functio
         {name: 'firstName'},
         {name: 'lastName'},
         {name: 'date'},
-        {name: 'company',cellTemplate: 'pageAddress.html'}
+        {name: 'company'}
     ];
 
 
