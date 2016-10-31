@@ -1,10 +1,14 @@
 
-var dataBuf={};
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning','ui.bootstrap','ngAnimate', 'ngSanitize'])
+
+var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning','ngAnimate', 'ngSanitize','ui.bootstrap'])
 
 
-app.controller('MainCtrl', ['$scope', '$http','$uibModal','$log', '$document', function ($scope, $http,$uibModal, $log, $document,$uibModalInstance) {
+app.controller('MainCtrl', ['$scope', '$http','$uibModal', '$document', function ($scope, $http,$uibModal,  $document) {
     /* Table*/
+    $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    $scope.dataBuf={};
+    $scope.dataCopy={};
+    $scope.rowCol;
     $scope.currentFocused = "";
     var $ctrl = this;
     $ctrl.animationsEnabled = true;
@@ -27,7 +31,8 @@ app.controller('MainCtrl', ['$scope', '$http','$uibModal','$log', '$document', f
             /*GetInformation*/
     $http.get('repository.json')
         .success(function (data) {
-            dataBuf=data;
+            $scope.dataBuf=data;
+            $scope.dataCopy=angular.copy($scope.dataBuf);
             $scope.gridOptions.data = data;
         })
         .error(function (result) {
@@ -39,13 +44,14 @@ app.controller('MainCtrl', ['$scope', '$http','$uibModal','$log', '$document', f
     $scope.getRow = function () {
         $scope.rowCol = $scope.gridApi.cellNav.getFocusedCell();
         if ($scope.rowCol !== null) {
-            $scope.user=dataBuf.filter(function (item) {
+            $scope.user=$scope.dataCopy.filter(function (item) {
                 return (item.id==$scope.rowCol.row.entity.id);
             });
             $scope.user=$scope.user[0];
+            $ctrl.open('lg');
+        }else {
+            alert("Выделите ячейку");
         }
-        $ctrl.open('lg');
-        $ctrl.user=$scope.user;
     };
 
         /*PaginationPageSize*/
@@ -57,16 +63,23 @@ app.controller('MainCtrl', ['$scope', '$http','$uibModal','$log', '$document', f
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.gridApi = gridApi;
     };
-
+        /*Submit*/
     $scope.save = function () {
+        var buf;
+        if ($scope.rowCol !== null) {
+            $scope.dataBuf.forEach(function(item, i) {
+                if(item.id==$scope.rowCol.row.entity.id){
+                    buf=i;
+                }
+            });
+            $scope.dataBuf[buf]=$scope.user;
+        }
         $scope.user={};
-$ctrl.close;
-
     };
 
 
 
-        ///Развлекаловка с сервисами
+        /*data/datepicker*/
 
 
     $ctrl.open = function (size, parentSelector) {
@@ -91,14 +104,6 @@ $ctrl.close;
 ///////data
 /*----------------------------*/
 
-
-    function disabled(data) {
-        var date = data.date,
-            mode = data.mode;
-        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-    }
-
-
     $scope.open1 = function() {
         $scope.popup1.opened = true;
     };
@@ -106,20 +111,12 @@ $ctrl.close;
     $scope.popup1 = {
         opened: false
     };
-    function disabled(data) {
-        var date = data.date,
-            mode = data.mode;
-        return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-    }
     $scope.dateOptions = {
-        dateDisabled: disabled,
-        formatYear: 'yyyy',
+        formatYear: 'yy',
         maxDate: new Date(2020, 5, 22),
         minDate: new Date(),
         startingDay: 1
     };
-
-    $scope.altInputFormats = ['M!/d!/yyyy'];
 
 }]);
 

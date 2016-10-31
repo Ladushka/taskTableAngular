@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>
-<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<!DOCTYPE html >
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +7,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="bower_components/jQuery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
     <link rel="stylesheet" href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" type="text/css">
     <link rel="stylesheet" href="../node_modules/angular-ui-grid/ui-grid.css" type="text/css">
 
@@ -60,28 +54,32 @@
                 <!--Form-->
 
                 <form name="editForm" novalidate class="simple-form">
+                    <!--Id-->
                     Id: <input type="number" class="form-control" ng-model="user.id" required/><br/>
+                    <!--Name-->
                     First Name: <input type="text" class="form-control" ng-model="user.firstName" required/>
+                    <!--Surname-->
                     Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
+                    <!--Data-->
+                    <div class="col-md-6">
+                        <p class="input-group">
+                            Date: <input id="d" type="text" class="form-control" ng-model="user.date"
+                                         uib-datepicker-popup is-open="popup1.opened"
+                                         datepicker-options="dateOptions" ng-required="true" close-text="Close"/><br/>
 
-                    Date: <input id="d" type="text" class="form-control" ng-model="user.date"
-                                 uib-datepicker-popup="YYYY/MM/DD" is-open="popup1.opened"
-                                 datepicker-options="dateOptions"
-                                  close-text="Close" alt-input-formats="altInputFormats"/><br/>
-
-                    <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open1()"><i
-                    class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-
-
-                    Company:<input id="names" type="text" class="form-control" ng-model="user.company"
-                                   typeahead="name for name in names | filter:$viewValue | limitTo:8"
-                                   required/><br/>
-
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i
+                            class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                    <!--Company-->
+                    <div class='container-fluid typeahead-demo'>
+                        <!--uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"-->
+                    Company:<input type="text" ng-model="user.company" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+                    </div>
                     <input type="submit" class="btn btn-primary" ng-click="save() " value="Submit"
                            ng-disabled="editForm.$invalid"/>
-
                 </form>
 
             </div>
@@ -94,53 +92,12 @@
         </div>
 
 
-        <!--<div date-picker="dates.today" id="pickerBothDatesDiv" min-date="minDate" max-date="maxDate" view="date" min-view="hours" timezone="UTC" watch-direct-changes="true"></div>-->
-        <!-- Modal -->
-        <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-        <!--<div class="modal-dialog" role="document">-->
-        <!--<div class="modal-content">-->
-        <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
-        <!--aria-hidden="true">&times;</span></button>-->
-        <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
-        <!--</div>-->
-        <!--<div class="modal-body" >-->
-        <!--&lt;!&ndash; Form &ndash;&gt;-->
-        <!--<form name="editForm" novalidate class="simple-form">-->
-        <!--Id: <form name="editForm" novalidate class="simple-form">-->
-        <!--<span ng-show="editForm.id.$invalid">You break my heart</span>-->
-        <!--First Name: <input type="text" class="form-control" ng-model="user.firstName" required/><br/>-->
-        <!--Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>-->
-
-        <!--<div class='input-group date' id='datetimepicker1'>-->
-        <!--Date: <input id="d" type="text" class="form-control" ng-model="user.date" data-date-format="YYYY/MM/DD" required/><br/>-->
-        <!--<span class="input-group-addon">-->
-        <!--<span class="glyphicon glyphicon-calendar"></span>-->
-        <!--</span>-->
-        <!--</div>-->
-        <!--<script type="text/javascript">-->
-        <!--$(function () {-->
-        <!--$('#datetimepicker1').datetimepicker(-->
-        <!--);-->
-        <!--});-->
-        <!--</script>-->
-
-        <!--Company:<input id="names" type="text" class="form-control" ng-model="user.company"  typeahead="name for name in names | filter:$viewValue | limitTo:8" required /><br/>-->
-
-        <!--<input type="submit" class="btn btn-primary" ng-click="save()" value="Submit" ng-disabled="editForm.$invalid"/>-->
-        <!--</form>-->
-
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-
     </div>
 
 
 </div>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
+<!--<script src="bower_components/angular-route/angular-route.js"></script>-->
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
@@ -148,14 +105,9 @@
 <script src="../node_modules/angular-touch/angular-touch.js"></script>
 <script src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
 <script src="../node_modules/angular-animate/angular-animate.js"></script>
-<script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 <script src="app.js"></script>
-<script src="../node_modules/ng-typeahead/dist/ng-typeahead.js"></script>
-<script src="bower_components/moment/moment.js"></script>
-<script type="text/javascript"
-        src="bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
 </body>
 </html>
