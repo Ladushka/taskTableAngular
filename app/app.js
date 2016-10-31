@@ -1,13 +1,11 @@
+var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning', 'ngAnimate', 'ngSanitize', 'ui.bootstrap','ngRoute'])
 
 
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning','ngAnimate', 'ngSanitize','ui.bootstrap'])
-
-
-app.controller('MainCtrl', ['$scope', '$http','$uibModal', '$document', function ($scope, $http,$uibModal,  $document) {
+app.controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', function ($scope, $http, $uibModal, $document) {
     /* Table*/
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-    $scope.dataBuf={};
-    $scope.dataCopy={};
+    $scope.dataBuf = {};
+    $scope.dataCopy = {};
     $scope.rowCol;
     $scope.currentFocused = "";
     var $ctrl = this;
@@ -28,33 +26,33 @@ app.controller('MainCtrl', ['$scope', '$http','$uibModal', '$document', function
     ];
 
 
-            /*GetInformation*/
+    /*GetInformation*/
     $http.get('repository.json')
         .success(function (data) {
-            $scope.dataBuf=data;
-            $scope.dataCopy=angular.copy($scope.dataBuf);
+            $scope.dataBuf = data;
+            $scope.dataCopy = angular.copy($scope.dataBuf);
             $scope.gridOptions.data = data;
         })
         .error(function (result) {
             console.log('error', result);
         });
 
-        /*Form edit*/
+    /*Form edit*/
 
     $scope.getRow = function () {
         $scope.rowCol = $scope.gridApi.cellNav.getFocusedCell();
         if ($scope.rowCol !== null) {
-            $scope.user=$scope.dataCopy.filter(function (item) {
-                return (item.id==$scope.rowCol.row.entity.id);
+            $scope.user = $scope.dataCopy.filter(function (item) {
+                return (item.id == $scope.rowCol.row.entity.id);
             });
-            $scope.user=$scope.user[0];
+            $scope.user = $scope.user[0];
             $ctrl.open('lg');
-        }else {
+        } else {
             alert("Выделите ячейку");
         }
     };
 
-        /*PaginationPageSize*/
+    /*PaginationPageSize*/
     $scope.go = function (items) {
         $scope.gridOptions.paginationPageSize = items;
     };
@@ -63,23 +61,22 @@ app.controller('MainCtrl', ['$scope', '$http','$uibModal', '$document', function
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.gridApi = gridApi;
     };
-        /*Submit*/
+    /*Submit*/
     $scope.save = function () {
         var buf;
         if ($scope.rowCol !== null) {
-            $scope.dataBuf.forEach(function(item, i) {
-                if(item.id==$scope.rowCol.row.entity.id){
-                    buf=i;
+            $scope.dataBuf.forEach(function (item, i) {
+                if (item.id == $scope.rowCol.row.entity.id) {
+                    buf = i;
                 }
             });
-            $scope.dataBuf[buf]=$scope.user;
+            $scope.dataBuf[buf] = $scope.user;
         }
-        $scope.user={};
+        $scope.user = {};
     };
 
 
-
-        /*data/datepicker*/
+    /*data/datepicker*/
 
 
     $ctrl.open = function (size, parentSelector) {
@@ -92,19 +89,19 @@ app.controller('MainCtrl', ['$scope', '$http','$uibModal', '$document', function
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'myModalContent.html',
-            controller:  'ModalInstanceCtrl',
+            controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
             size: size,
             appendTo: parentElem,
-            scope:$scope
+            scope: $scope
         });
 
     };
 
 ///////data
-/*----------------------------*/
+    /*----------------------------*/
 
-    $scope.open1 = function() {
+    $scope.open1 = function () {
         $scope.popup1.opened = true;
     };
 
