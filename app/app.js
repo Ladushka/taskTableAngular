@@ -1,9 +1,9 @@
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning', 'ngAnimate', 'ngSanitize', 'ui.bootstrap','ngRoute'])
+var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.cellNav', 'ui.grid.pinning', 'ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ngRoute'])
 
 
 app.controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', function ($scope, $http, $uibModal, $document) {
     /* Table*/
-    $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    $scope.states = ['Exadel', 'Epam', 'Anderson', 'InnovationGroup', 'MainSoft', 'Coins', 'SumSolutions','Belvest' ];
     $scope.dataBuf = {};
     $scope.dataCopy = {};
     $scope.rowCol;
@@ -22,7 +22,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', functio
         {name: 'firstName'},
         {name: 'lastName'},
         {name: 'date'},
-        {name: 'company'}
+        {name: 'company',cellTemplate: 'pageAddress.html'}
     ];
 
 
