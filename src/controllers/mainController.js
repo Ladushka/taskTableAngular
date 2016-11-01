@@ -3,7 +3,7 @@
 
     angular.module('app.main', [])
 
-        .controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', function ($scope, $http, $uibModal, $document) {
+        .controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', function ($scope, $http, $uibModal, $document,dataHttpService) {
             /* Table*/
 
             $scope.dataBuf = {};
@@ -26,17 +26,9 @@
                 {name: 'company'}
             ];
 
-
-            /*GetInformation*/
-            $http.get('src/json/repository.json')
-                .success(function (data) {
-                    $scope.dataBuf = data;
-                    $scope.dataCopy = angular.copy($scope.dataBuf);
-                    $scope.gridOptions.data = data;
-                })
-                .error(function (result) {
-                    console.log('error', result);
-                });
+            $scope.dataBuf=dataHttpService.getMyData();
+            $scope.dataCopy = angular.copy($scope.dataBuf);
+            $scope.gridOptions.data = dataHttpService.getMyData();
 
             /*Form edit*/
 
@@ -76,10 +68,7 @@
                 $scope.user = {};
             };
 
-
-            /*data/datepicker*/
-
-
+                    /*-------Modal--------*/
             $scope.open = function (size, parentSelector) {
 
                 var parentElem = parentSelector ?
