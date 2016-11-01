@@ -3,7 +3,7 @@
 
     angular.module('app.datepickerController', [])
 
-        .controller('DatepickerController', function ($scope) {
+        .controller('DatepickerController', function (HttpService) {
 
             $scope.openDatepicker = function () {
                 $scope.popup.opened = true;

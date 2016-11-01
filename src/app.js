@@ -1,5 +1,5 @@
 (function () {
-    'use strict'
+    'use strict';
 
     angular.module('app', [
         'ngTouch',
@@ -11,9 +11,13 @@
         'ngSanitize',
         'ui.bootstrap',
         'ngRoute',
-        'app.companyService',
-        'app.companyController',
-        'app.main',
-        'app.datepickerController'
+        'companies'
+
+
+        // 'app.companyService',
+        // 'app.companyController',
+        // 'app.main',
+        // 'app.datepickerController',
+        // 'app.httpService'
     ])
 })();
