@@ -10,8 +10,7 @@
             $scope.dataCopy = {};
             $scope.rowCol;
             $scope.currentFocused = "";
-            var $ctrl = this;
-            $ctrl.animationsEnabled = true;
+            $scope.animationsEnabled = true;
 
             $scope.gridOptions = {
                 modifierKeysToMultiSelectCells: true,
@@ -29,7 +28,7 @@
 
 
             /*GetInformation*/
-            $http.get('json/repository.json')
+            $http.get('src/json/repository.json')
                 .success(function (data) {
                     $scope.dataBuf = data;
                     $scope.dataCopy = angular.copy($scope.dataBuf);
@@ -48,7 +47,7 @@
                         return (item.id == $scope.rowCol.row.entity.id);
                     });
                     $scope.user = $scope.user[0];
-                    $ctrl.open('lg');
+                    $scope.open('lg');
                 } else {
                     alert("Выделите ячейку");
                 }
@@ -81,18 +80,15 @@
             /*data/datepicker*/
 
 
-            $ctrl.open = function (size, parentSelector) {
+            $scope.open = function (size, parentSelector) {
 
-                console.log("work");
                 var parentElem = parentSelector ?
                     angular.element($document[0].querySelector('.app ' + parentSelector)) : undefined;
                 var modalInstance = $uibModal.open({
-                    animation: $ctrl.animationsEnabled,
+                    animation: $scope.animationsEnabled,
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
-                    templateUrl: 'editFormModalContent.html',
-                    controller: 'ModalInstanceCtrl',
-                    controllerAs: '$ctrl',
+                    templateUrl: 'src/companies/editFormModalContent.html',
                     size: size,
                     appendTo: parentElem,
                     scope: $scope
@@ -100,19 +96,7 @@
 
             };
 
-            $scope.open1 = function () {
-                $scope.popup1.opened = true;
-            };
 
-            $scope.popup1 = {
-                opened: false
-            };
-            $scope.dateOptions = {
-                formatYear: 'yy',
-                maxDate: new Date(2020, 5, 22),
-                minDate: new Date(),
-                startingDay: 1
-            };
 
         }]);
 })();

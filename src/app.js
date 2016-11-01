@@ -11,9 +11,9 @@
         'ngSanitize',
         'ui.bootstrap',
         'ngRoute',
-        'app.modal',
         'app.companyService',
         'app.companyController',
-        'app.main'
+        'app.main',
+        'app.datepickerController'
     ])
 })();
