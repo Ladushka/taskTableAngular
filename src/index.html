@@ -7,28 +7,26 @@
     <title>My AngularJS App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-migrate/jquery-migrate.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery-migrate/jquery-migrate.js"></script>
 
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.js/"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.js/"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
-    <script src="components/version/version.js"></script>
-    <script src="components/version/version-directive.js"></script>
-    <script src="components/version/interpolate-filter.js"></script>
-    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+
+    <script src="../bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="../bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="styles/app.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" type="text/css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../bower_components/angular-ui-grid/ui-grid.css" type="text/css">
 
 
 </head>
@@ -38,8 +36,8 @@
     <div ng-controller="MainCtrl as $ctrl">
 
 
-
-        <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination  ui-grid-selection class="grid"></div>
+        <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination ui-grid-selection
+             class="grid"></div>
         <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
         <!-- control buttons -->
         <button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
@@ -54,7 +52,7 @@
             set
         </button>
 
-        <script type="text/ng-template" id="myModalContent.html">
+        <script type="text/ng-template" id="editFormModalContent.html">
             <div class="modal-header">
                 <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
             </div>
@@ -101,9 +99,10 @@
 
 
 </div>
-<script src="controllers/MainController.js"></script>
-<script src="controllers/ModalInstanseController.js"></script>
-<script src="services/dataCompanyService.js"></script>
-<script src="controllers/DataCompanyController.js"></script>
+<script src="app.js"></script>
+<script src="controllers/mainController.js"></script>
+<script src="controllers/modalInstanseController.js"></script>
+<script src="companies/companyService.js"></script>
+<script src="companies/companyController.js"></script>
 </body>
 </html>

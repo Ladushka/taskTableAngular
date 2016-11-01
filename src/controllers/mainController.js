@@ -1,20 +1,7 @@
 (function () {
     'use strict'
 
-    angular.module('app', [
-        'ngTouch',
-        'ui.grid',
-        'ui.grid.pagination',
-        'ui.grid.cellNav',
-        'ui.grid.pinning',
-        'ngAnimate',
-        'ngSanitize',
-        'ui.bootstrap',
-        'ngRoute',
-        'app.modal',
-        'app.companyService',
-        'app.companyController'
-    ])
+    angular.module('app.main', [])
 
         .controller('MainCtrl', ['$scope', '$http', '$uibModal', '$document', function ($scope, $http, $uibModal, $document) {
             /* Table*/
@@ -103,7 +90,7 @@
                     animation: $ctrl.animationsEnabled,
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
-                    templateUrl: 'myModalContent.html',
+                    templateUrl: 'editFormModalContent.html',
                     controller: 'ModalInstanceCtrl',
                     controllerAs: '$ctrl',
                     size: size,

@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <!--Form-->
+
+    <form name="editForm" novalidate class="simple-form">
+        <!--Id-->
+        Id: <input type="number" class="form-control" ng-model="user.id" required/><br/>
+        <!--Name-->
+        First Name: <input type="text" class="form-control" ng-model="user.firstName" required/>
+        <!--Surname-->
+        Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
+        <!--Data-->
+        Date: <input id="d" type="text" class="form-control" ng-model="user.date"
+                     uib-datepicker-popup is-open="popup1.opened"
+                     datepicker-options="dateOptions" ng-required="true" close-text="Close"/><br/>
+
+        <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i
+                                        class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+
+        <div class='container-fluid uib-typeahead-demo' ng-controller="DataCompanyController">
+            Company:<input type="text" ng-model="user.company"
+                           uib-typeahead="company for company in companies | filter:$viewValue"
+                           class="form-control">
+        </div>
+        <input type="submit" class="btn btn-primary" ng-click="save() " value="Submit"
+               ng-disabled="editForm.$invalid"/>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Applay</button>
+</div>
