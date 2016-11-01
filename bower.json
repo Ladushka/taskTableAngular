@@ -1,9 +1,6 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "taskTableAngular",
   "version": "0.0.0",
-  "homepage": "https://github.com",
-  "license": "MIT",
   "private": true,
   "dependencies": {
     "bootstrap":"3.1.1",
