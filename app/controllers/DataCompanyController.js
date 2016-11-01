@@ -1,3 +1,5 @@
+'use strict'
+
 angular.module('app.companyController', [])
 
     .controller('DataCompanyController',function ($scope,dataCompanyService) {

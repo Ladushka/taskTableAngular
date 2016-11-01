@@ -1,3 +1,5 @@
+'use strict'
+
 angular.module('app', [
     'ngTouch',
     'ui.grid',

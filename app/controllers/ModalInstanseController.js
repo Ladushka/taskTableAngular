@@ -1,6 +1,5 @@
-/**
- * Created by Лада on 01.11.2016.
- */
+'use strict'
+
 angular.module('app.modal', [])
 
     .controller('ModalInstanceCtrl', function ($uibModalInstance) {
