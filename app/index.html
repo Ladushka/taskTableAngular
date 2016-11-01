@@ -24,10 +24,9 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-    <link rel="stylesheet" href="app.css" type="text/css">
+    <link rel="stylesheet" href="style/app.css" type="text/css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" type="text/css">
 
@@ -39,8 +38,7 @@
     <div ng-controller="MainCtrl as $ctrl">
 
 
-        <!-- Table -->
-        <!--ui-grid-save-state ui-grid-selection ui-grid-cellNav ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid-grouping-->
+
         <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination  ui-grid-selection class="grid"></div>
         <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
         <!-- control buttons -->
@@ -79,10 +77,10 @@
                                 <button type="button" class="btn btn-default" ng-click="open1()"><i
                                         class="glyphicon glyphicon-calendar"></i></button>
                             </span>
-                    <!--uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"-->
-                    <div class='container-fluid uib-typeahead-demo'>
+
+                    <div class='container-fluid uib-typeahead-demo' ng-controller="DataCompanyController">
                         Company:<input type="text" ng-model="user.company"
-                                       typeahead="state for state in states | filter:$viewValue"
+                                       uib-typeahead="company for company in companies | filter:$viewValue"
                                        class="form-control">
                     </div>
                     <input type="submit" class="btn btn-primary" ng-click="save() " value="Submit"
@@ -103,6 +101,9 @@
 
 
 </div>
-
+<script src="controllers/MainController.js"></script>
+<script src="controllers/ModalInstanseController.js"></script>
+<script src="services/dataCompanyService.js"></script>
+<script src="controllers/DataCompanyController.js"></script>
 </body>
 </html>
