@@ -22,16 +22,11 @@
                                         <!--class="glyphicon glyphicon-calendar"></i></button>-->
                             <!--</span>-->
         <!--</div>-->
-        <div class='container-fluid uib-typeahead-demo' ng-controller="DataCompanyController">
-            Company:<input type="text" ng-model="user.company"
-                           uib-typeahead="company for company in companies | filter:$viewValue"
-                           class="form-control">
+        <div class='container-fluid uib-typeahead-demo' ng-controller="companiesController" required>
+            Company:<input type="text" ng-model="user.company" uib-typeahead="company for company in companies | filter:$viewValue" class="form-control"><br/>
         </div>
         <input type="submit" class="btn btn-primary" ng-click="save()" value="Submit"
                ng-disabled="editForm.$invalid"/>
     </form>
 
-</div>
-<div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Applay</button>
 </div>

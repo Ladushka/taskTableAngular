@@ -1,20 +1,18 @@
 (function () {
     'use strict';
 
-    angular.module('app')
+    angular.module('app.companies')
 
         .factory('companiesService', function ($http) {
-            //var service;
             return {
 
-                getPeople:function () {
-                    return  $http.get('src/json/repository.json');
+                getPeople: function () {
+                    return $http.get('src/json/repository.json');
 
                 },
-                getCompanies:function () {
+                getCompanies: function () {
                     return ['Exadel', 'Epam', 'Anderson', 'InnovationGroup', 'MainSoft', 'Coins', 'SamSolutions', 'Belvest'];
                 }
             }
-
         });
 })();

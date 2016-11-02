@@ -10,6 +10,7 @@
         'ngAnimate',
         'ngSanitize',
         'ui.bootstrap',
-        'ngRoute'
+        'ngRoute',
+        'app.companies'
     ])
 })();

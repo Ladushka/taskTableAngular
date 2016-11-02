@@ -33,35 +33,11 @@
 <body>
 
 <div ng-app="app">
-    <div ng-controller="mainCtrl">
-        <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination ui-grid-selection
-             class="grid"></div>
-        <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
-        <!-- control buttons -->
-        <button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
-            previous page
-        </button>
-        <button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">
-            next page
-        </button>
-        items per page
-        <input type="text" size="5px" ng-model="items">
-        <button type="button" class="btn btn-success" ng-click="go(items)">
-            set
-        </button>
-
-        <button type="button" class="btn btn-default" ng-click="getRow()">Edit</button>
-        <div class="modal-parent">
-        </div>
-
-
+    <div ng-controller="companiesController">
+        <ng-include src="'src/companies/companiesTable.html'"></ng-include>
     </div>
-
-
 </div>
 <script src="src/app.js"></script>
-<!--<script src="src/controllers/datepickerController.js"></script>-->
-<script src="src/controllers/mainController.js"></script>
 <script src="src/companies/companiesController.js"></script>
 <script src="src/companies/companiesService.js"></script>
 
