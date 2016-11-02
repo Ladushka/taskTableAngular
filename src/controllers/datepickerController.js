@@ -1,9 +1,9 @@
 (function () {
-    'use strict'
+    'use strict';
 
     angular.module('app')
 
-        .controller('datepickerController', function (HttpService) {
+        .controller('datepickerController', function ($scope) {
 
             $scope.openDatepicker = function () {
                 $scope.popup.opened = true;
