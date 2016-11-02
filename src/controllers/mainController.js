@@ -1,14 +1,11 @@
 (function () {
     'use strict';
 
-    angular.module('app', [])
+    angular.module('app')
 
-        .controller('appCtrl', ['$scope', '$http', '$uibModal', '$document', 'companiesService',
+        .controller('mainCtrl', ['$scope', '$http', '$uibModal', '$document', 'companiesService',
             function ($scope, $http, $uibModal, $document, companiesService) {
                 /* Table*/
-
-                $scope.dataBuf = {};
-                $scope.dataCopy = {};
                 $scope.rowCol;
                 $scope.currentFocused = "";
                 $scope.animationsEnabled = true;
@@ -27,18 +24,17 @@
                     {name: 'company'}
                 ];
 
-
-                console.log(companiesService.getCompanies());
-                $scope.dataBuf = companiesService.getCompanies();
-                $scope.dataCopy = angular.copy($scope.dataBuf);
-                $scope.gridOptions.data = companiesService.getCompanies();
-
-                /*Form edit*/
+                companiesService.getPeople().then(function (response) {
+                    $scope.gridOptions.data = response.data;
+                });
+                $scope.dataCopy = angular.copy($scope.gridOptions.data);
+                console.log($scope.dataCopy)
+                 /*Form edit*/
 
                 $scope.getRow = function () {
                     $scope.rowCol = $scope.gridApi.cellNav.getFocusedCell();
                     if ($scope.rowCol !== null) {
-                        $scope.user = $scope.dataCopy.filter(function (item) {
+                        $scope.user = $scope.gridOptions.data.filter(function (item) {
                             return (item.id == $scope.rowCol.row.entity.id);
                         });
                         $scope.user = $scope.user[0];
@@ -61,7 +57,7 @@
                 $scope.save = function () {
                     var buf;
                     if ($scope.rowCol !== null) {
-                        $scope.dataBuf.forEach(function (item, i) {
+                        $scope.dataCopy.forEach(function (item, i) {
                             if (item.id == $scope.rowCol.row.entity.id) {
                                 buf = i;
                             }

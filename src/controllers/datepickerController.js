@@ -1,7 +1,7 @@
 (function () {
     'use strict'
 
-    angular.module('app.datepickerController', [])
+    angular.module('app')
 
         .controller('DatepickerController', function (HttpService) {
 

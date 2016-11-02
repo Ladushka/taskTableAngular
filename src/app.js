@@ -10,14 +10,6 @@
         'ngAnimate',
         'ngSanitize',
         'ui.bootstrap',
-        'ngRoute',
-        'companies'
-
-
-        // 'app.companyService',
-        // 'app.companyController',
-        // 'app.main',
-        // 'app.datepickerController',
-        // 'app.httpService'
+        'ngRoute'
     ])
 })();
