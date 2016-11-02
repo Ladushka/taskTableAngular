@@ -1,6 +1,3 @@
-<div class="modal-header">
-    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
-</div>
 <div class="modal-body" id="modal-body">
     <!--Form-->
 
@@ -12,21 +9,25 @@
         <!--Surname-->
         Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
         <!--Data-->
-        <div ng-controller="datepickerController">
-            Date: <input type="text" class="form-control" ng-model="user.date" required
-                         uib-datepicker-popup is-open="popup.opened"
-                         datepicker-options="dateOptions" ng-required="true" close-text="Close"/><br/>
-
+        <div class="input-group" ng-controller="datepickerController">
             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="openDatepicker()"><i
                                         class="glyphicon glyphicon-calendar"></i></button>
                             </span>
+            Date: <input type="text" class="form-control"
+                         uib-datepicker-popup
+                         ng-model="user.date"
+                         required
+                         is-open="popup.opened"
+                         datepicker-options="dateOptions"/><br/>
         </div>
+        <!--Company-->
         <div class='container-fluid uib-typeahead-demo' ng-controller="companiesController" required>
-            Company:<input type="text" ng-model="user.company" uib-typeahead="company for company in companies | filter:$viewValue" class="form-control"><br/>
+            Company:<input type="text" ng-model="user.company"
+                           uib-typeahead="company for company in companies | filter:$viewValue"
+                           class="form-control"><br/>
         </div>
         <input type="submit" class="btn btn-primary" ng-click="save()" value="Submit"
                ng-disabled="editForm.$invalid"/>
     </form>
-
 </div>

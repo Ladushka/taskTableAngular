@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.companies',[])
+    angular.module('app.companies', [])
 
         .controller('companiesController', ['$scope', '$http', '$uibModal', '$document', 'companiesService',
             function ($scope, $http, $uibModal, $document, companiesService) {
