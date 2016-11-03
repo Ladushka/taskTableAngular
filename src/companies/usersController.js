@@ -51,7 +51,6 @@
                         scope: $scope
                     });
                     modalInstance.result.then(function (user) {
-                        console.log(user);
                         $scope.save(user);
 
                     });
