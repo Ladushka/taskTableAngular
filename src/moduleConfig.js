@@ -3,9 +3,9 @@
 
     angular.module('app')
         .config(function ($routeProvider) {
-            $routeProvider.when('/userGrid',
+            $routeProvider.when('/users',
                 {
-                    templateUrl: 'src/companies/usersTable.html',
+                    templateUrl: 'src/companies/users.html',
                     controller: 'companiesController'
                 });
             $routeProvider.when('/about',

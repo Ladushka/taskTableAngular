@@ -46,7 +46,7 @@
                 $scope.open = function (size) {
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
-                        templateUrl: 'src/companies/editFormModalContent.html',
+                        templateUrl: 'src/companies/editContent.html',
                         size: size,
                         scope: $scope
                     });
