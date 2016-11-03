@@ -66,3 +66,14 @@
   border-radius: 0;
   box-shadow: none;
 }
+header{
+  width: 100%;
+  background: #D8E3AB;
+  height: 100px;
+}
+
+.title{
+  font-size: 30px;
+  padding-top: 10px;
+  text-align: center;
+}

@@ -2,7 +2,6 @@
     'use strict';
 
     angular.module('app', [
-        'ngTouch',
         'ui.grid',
         'ui.grid.pagination',
         'ui.grid.cellNav',
