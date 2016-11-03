@@ -29,20 +29,18 @@
 
 </head>
 <body>
-<div id="wrap">
     <header>
         <div class="title">Users</div>
         <nav>
-            <a class="btn btn-primary" href="#">Information</a>
-            <a class="btn btn-primary" href="#">About</a>
-            <a class="btn btn-primary" href="#">Address</a>
+            <a class="btn btn-primary" href="#/userGrid">Information</a>
+            <a class="btn btn-primary" href="#/about">About</a>
         </nav>
     </header>
-</div>
 <div ng-app="app">
-    <ng-include src="'src/companies/usersTable.html'"></ng-include>
+    <div ng-view></div>
 </div>
 <script src="src/app.js"></script>
+<script src="src/moduleConfig.js"></script>
 <script src="src/companies/usersController.js"></script>
 <script src="src/companies/usersService.js"></script>
 <script src="src/controllers/datepickerController.js"></script>

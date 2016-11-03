@@ -1,4 +1,3 @@
-<div ng-controller="companiesController">
     <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination ui-grid-selection
          class="grid"></div>
     <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
@@ -15,4 +14,3 @@
         set
     </button>
     <button type="button" class="btn btn-default" ng-click="getRow()">Edit</button>
-</div>
