@@ -1,14 +1,17 @@
 (function () {
     'use strict';
 
-    angular.module('app')
-
+    angular.module('app.locate')
+//,$http,localizationService
         .controller('localizationController', function ($scope, $translate) {
-console.log('work');
+
             $scope.changeLanguage = function (key) {
                 $translate.use(key);
             };
 
+            // localizationService.getEnLocations().then(function (response) {
+            //     console.log(response.data);
+            // });
         });
 
 })();

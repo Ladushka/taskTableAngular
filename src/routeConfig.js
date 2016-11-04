@@ -10,7 +10,7 @@
                 });
             $routeProvider.when('/about',
                 {
-                    templateUrl: 'src/templates/pageAddress.html',
+                    templateUrl: 'src/templates/pageAddress.html'
                 });
         });
 

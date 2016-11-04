@@ -12,5 +12,6 @@
         'ngRoute',
         'pascalprecht.translate',
         'app.companies',
+        'app.locate'
     ])
 })();

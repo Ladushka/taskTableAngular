@@ -3,7 +3,7 @@
 
     angular.module('app.companies')
 
-        .factory('companiesService', function ($http) {
+        .service('companiesService', function ($http) {
             return {
 
                 getPeople: function () {
@@ -30,6 +30,6 @@
                     }
 
                 }
-            }
+            };
         });
 })();

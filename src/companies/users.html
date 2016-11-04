@@ -1,6 +1,5 @@
     <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-pinning ui-grid-pagination ui-grid-selection
          class="grid"></div>
-    <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
     <!-- control buttons -->
     <button translate="PREVIOUS_PAGE" type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
         previous page
@@ -8,11 +7,12 @@
     <button translate="NEXT_PAGE" type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">
         next page
     </button>
+    <div translate="ITEMS_PER_PAGE">
     items per page
+    </div>
     <input type="text" size="5px" ng-model="items">
+
     <button translate="SET" type="button" class="btn btn-success" ng-click="$scope.gridOptions.paginationPageSize = items">
         set
     </button>
     <button translate="EDIT" type="button" class="btn btn-default" ng-click="getRow()">Edit</button>
-    <button type="button" class="btn btn-default" ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN">english</button>
-    <button type="button" class="btn btn-default" ng-click="changeLanguage('ru')" translate="BUTTON_LANG_RU">russian</button>
