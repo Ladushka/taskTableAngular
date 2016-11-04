@@ -2,15 +2,17 @@
          class="grid"></div>
     <p>Current page: {{ gridApi.pagination.getPage() }} of {{ gridApi.pagination.getTotalPages() }}</p>
     <!-- control buttons -->
-    <button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
+    <button translate="PREVIOUS_PAGE" type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()">
         previous page
     </button>
-    <button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">
+    <button translate="NEXT_PAGE" type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()">
         next page
     </button>
     items per page
     <input type="text" size="5px" ng-model="items">
-    <button type="button" class="btn btn-success" ng-click="$scope.gridOptions.paginationPageSize = items">
+    <button translate="SET" type="button" class="btn btn-success" ng-click="$scope.gridOptions.paginationPageSize = items">
         set
     </button>
-    <button type="button" class="btn btn-default" ng-click="getRow()">Edit</button>
+    <button translate="EDIT" type="button" class="btn btn-default" ng-click="getRow()">Edit</button>
+    <button type="button" class="btn btn-default" ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN">english</button>
+    <button type="button" class="btn btn-default" ng-click="changeLanguage('ru')" translate="BUTTON_LANG_RU">russian</button>

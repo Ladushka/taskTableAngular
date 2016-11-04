@@ -10,6 +10,7 @@
         'ngSanitize',
         'ui.bootstrap',
         'ngRoute',
-        'app.companies'
+        'pascalprecht.translate',
+        'app.companies',
     ])
 })();

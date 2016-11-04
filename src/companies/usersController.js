@@ -6,7 +6,6 @@
         .controller('companiesController', ['$scope', '$http', '$uibModal', '$document', 'companiesService',
             function ($scope, $http, $uibModal, $document, companiesService) {
 
-
                 $scope.gridOptions = companiesService.gridOptions().gridOptions;
                 $scope.gridOptions.columnDefs = companiesService.gridOptions().columnDefs;
 
@@ -52,8 +51,8 @@
                     });
                     modalInstance.result.then(function (user) {
                         $scope.save(user);
-
                     });
+
                 };
             }]);
 })();
