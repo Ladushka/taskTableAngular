@@ -16,7 +16,7 @@
                 $scope.companies = companiesService.getCompanies();
 
                 $scope.getRow = function () {
-                    if ($scope.gridApi.selection.getSelectedRows().length===1) {
+                    if ($scope.gridApi.selection.getSelectedRows().length === 1) {
                         $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
                         $scope.open('lg');
                     } else {

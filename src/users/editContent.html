@@ -1,32 +1,39 @@
-<div class="modal-header">Edit {{user.lastName}} User</div>
+<div class="modal-header">
+    <translate>EDIT</translate>
+    {{user.lastName}}
+</div>
 <div class="modal-body" id="modal-body">
     <!--Form-->
 
     <form name="editForm" novalidate class="simple-form">
         <!--Id-->
-        Id: <input type="number" class="form-control" ng-model="user.id" required/><br/>
+        Id: <input type="number" class="form-control" ng-model="user.id" readonly="readonly"/><br/>
         <!--Name-->
-        First Name: <input type="text" class="form-control" ng-model="user.firstName" required/>
+        <translate>FIRST_NAME</translate>
+        : <input type="text" class="form-control" ng-model="user.firstName" required/>
         <!--Surname-->
-        Last Name: <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
+        <translate>LAST_NAME</translate>
+        : <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
         <!--Data-->
         <div class="input-group" ng-controller="datepickerController">
             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="openDatepicker()"><i
                                         class="glyphicon glyphicon-calendar"></i></button>
                             </span>
-            Date: <input type="text" class="form-control"
-                         uib-datepicker-popup
-                         ng-model="user.date"
-                         required
-                         is-open="popup.opened"
-                         datepicker-options="dateOptions"/><br/>
+            <translate>DATE</translate>
+            : <input type="text" class="form-control"
+                     uib-datepicker-popup
+                     ng-model="user.date"
+                     required
+                     is-open="popup.opened"
+                     datepicker-options="dateOptions"/><br/>
         </div>
         <!--Company-->
         <div class='container-fluid uib-typeahead-demo' ng-controller="companiesController" required>
-            Company:<input type="text" ng-model="user.company"
-                           uib-typeahead="company for company in companies | filter:$viewValue"
-                           class="form-control"><br/>
+            <translate>COMPANY</translate>
+            :<input type="text" ng-model="user.company"
+                    uib-typeahead="company for company in companies | filter:$viewValue"
+                    class="form-control"><br/>
         </div>
     </form>
 </div>

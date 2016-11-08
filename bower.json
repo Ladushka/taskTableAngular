@@ -14,7 +14,8 @@
     "angular-animate": "~1.5.8",
     "angular-sanitize": "1.5.8",
     "angular-bootstrap": "2.2.0",
-    "angular-ui-grid": "3.2.1"
+    "angular-ui-grid": "3.2.1",
+    "angular-translate-loader-static-files": "2.13.0"
   },
   "devDependencies": {
     "angular-translate": "^2.13.0"
