@@ -29,7 +29,7 @@
                      datepicker-options="dateOptions"/><br/>
         </div>
         <!--Company-->
-        <div class='container-fluid uib-typeahead-demo' ng-controller="companiesController" required>
+        <div class='container-fluid uib-typeahead-demo' ng-controller="usersController" required>
             <translate>COMPANY</translate>
             :<input type="text" ng-model="user.company"
                     uib-typeahead="company for company in companies | filter:$viewValue"

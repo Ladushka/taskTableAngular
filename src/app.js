@@ -11,7 +11,8 @@
         'ui.bootstrap',
         'ngRoute',
         'pascalprecht.translate',
-        'app.companies',
-        'app.locate'
+        'app.users',
+        'app.locate',
+        'app.companies'
     ])
 })();

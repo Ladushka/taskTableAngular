@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('app.companies')
+    angular.module('app.users')
 
-        .service('companiesService', function ($http) {
+        .service('usersService', function ($http) {
             return {
 
                 getPeople: function () {

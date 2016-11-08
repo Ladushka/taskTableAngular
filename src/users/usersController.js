@@ -1,19 +1,20 @@
 (function () {
     'use strict';
 
-    angular.module('app.companies', [])
+    angular.module('app.users', [])
 
-        .controller('companiesController', ['$scope', '$http', '$uibModal', '$document', 'companiesService',
-            function ($scope, $http, $uibModal, $document, companiesService) {
+        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService',
+            function ($scope, $http, $uibModal, $document, usersService) {
 
-                $scope.gridOptions = companiesService.gridOptions().gridOptions;
-                $scope.gridOptions.columnDefs = companiesService.gridOptions().columnDefs;
+                $scope.gridOptions = usersService.gridOptions().gridOptions;
+                $scope.gridOptions.columnDefs = usersService.gridOptions().columnDefs;
 
-                companiesService.getPeople().then(function (response) {
+                usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
+                    console.log(response.data);
                 });
 
-                $scope.companies = companiesService.getCompanies();
+                $scope.companies = usersService.getCompanies();
 
                 $scope.getRow = function () {
                     if ($scope.gridApi.selection.getSelectedRows().length === 1) {

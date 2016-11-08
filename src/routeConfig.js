@@ -6,11 +6,13 @@
             $routeProvider.when('/users',
                 {
                     templateUrl: 'src/users/users.html',
-                    controller: 'companiesController'
+                    controller: 'usersController'
                 });
             $routeProvider.when('/about',
                 {
-                    templateUrl: 'src/templates/pageAddress.html'
+                    templateUrl: 'src/companies/companiesList.html',
+                    controller: 'companiesController'
+
                 });
         });
 
