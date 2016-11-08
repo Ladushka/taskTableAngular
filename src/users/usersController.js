@@ -16,11 +16,8 @@
                 $scope.companies = companiesService.getCompanies();
 
                 $scope.getRow = function () {
-                    $scope.rowCol = $scope.gridApi.cellNav.getFocusedCell();
-                    if ($scope.rowCol !== null) {
-                        $scope.user = angular.copy($scope.gridOptions.data.filter(function (item) {
-                            return (item.id == $scope.rowCol.row.entity.id);
-                        }))[0];
+                    if ($scope.gridApi.selection.getSelectedRows().length===1) {
+                        $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
                         $scope.open('lg');
                     } else {
                         alert("Выделите ячейку");
@@ -45,7 +42,7 @@
                 $scope.open = function (size) {
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
-                        templateUrl: 'src/companies/editContent.html',
+                        templateUrl: 'src/users/editContent.html',
                         size: size,
                         scope: $scope
                     });

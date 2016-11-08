@@ -4,7 +4,7 @@
     angular.module('app', [
         'ui.grid',
         'ui.grid.pagination',
-        'ui.grid.cellNav',
+        'ui.grid.selection',
         'ui.grid.pinning',
         'ngAnimate',
         'ngSanitize',

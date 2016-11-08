@@ -16,8 +16,10 @@
                 gridOptions: function () {
                     return {
                         gridOptions: {
-                            modifierKeysToMultiSelectCells: true,
                             enablePaginationControls: false,
+                            enableRowSelection: true,
+                            selectionRowHeaderWidth: 35,
+                            rowHeight: 35,
                             paginationPageSize: 5
                         },
                         columnDefs: [

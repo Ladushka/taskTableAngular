@@ -5,7 +5,7 @@
         .config(function ($routeProvider) {
             $routeProvider.when('/users',
                 {
-                    templateUrl: 'src/companies/users.html',
+                    templateUrl: 'src/users/users.html',
                     controller: 'companiesController'
                 });
             $routeProvider.when('/about',
