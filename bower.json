@@ -15,7 +15,8 @@
     "angular-sanitize": "1.5.8",
     "angular-bootstrap": "2.2.0",
     "angular-ui-grid": "3.2.1",
-    "angular-translate-loader-static-files": "2.13.0"
+    "angular-translate-loader-static-files": "2.13.0",
+    "angular-component-router":"0.2.0"
   },
   "devDependencies": {
     "angular-translate": "^2.13.0"
