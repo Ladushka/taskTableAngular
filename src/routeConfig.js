@@ -14,6 +14,12 @@
                     controller: 'companiesController'
 
                 });
+            $routeProvider.when('/about/:companyID',
+                {
+                    templateUrl: 'src/companies/companyAbout.html',
+                    controller: 'companiesController'
+
+                });
         });
 
 })();
