@@ -12,5 +12,10 @@
   "FIRST_NAME": "First Name",
   "LAST_NAME": "Last Name",
   "DATE": "Date",
-  "COMPANY": "Company"
+  "COMPANY": "Company",
+  "SEARCH":"Search",
+  "ADDRESS":"Address",
+  "COUNTRY":"Country",
+  "CITY":"City",
+  "STREET":"Street"
 }

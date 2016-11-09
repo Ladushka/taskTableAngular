@@ -1,3 +1,9 @@
+<div>
+<div class="block">
+    <translate>SEARCH</translate>: <input ng-model="search" />
+</div>
+    </br>
 <div class="list-group">
-    <a href="#/about/{{company.id}}" class="list-group-item" ng-repeat="company in companies">{{company.name}}</a>
+    <a href="#/about/{{company.id}}" class="list-group-item" ng-repeat="company in companies | filter: search">{{company.name}}</a>
+</div>
 </div>
