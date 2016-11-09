@@ -1,0 +1,14 @@
+<div>
+    <section class="tab" ng-controller="projectsController as proj">
+        <ul class="nav nav-pills">
+            <li ><a href ng-click="setTab(1)">Projects</a></li>
+            <li><a href ng-click="setTab(2)">Reviews</a></li>
+        </ul>
+        <div ng-show="isSet(1)">
+            <h4>Description</h4>
+        </div>
+        <div ng-show="isSet(2)">
+            <h4>Reviews</h4>
+        </div>
+    </section>
+</div>

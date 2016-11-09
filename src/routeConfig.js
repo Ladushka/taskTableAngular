@@ -12,13 +12,16 @@
                 {
                     templateUrl: 'src/companies/companiesList.html',
                     controller: 'companiesController'
-
                 });
             $routeProvider.when('/about/:companyID',
                 {
                     templateUrl: 'src/companies/companyAbout.html',
                     controller: 'companiesController'
-
+                });
+            $routeProvider.when('/about/:companyID/moreDetail',
+                {
+                    templateUrl: 'src/projects/projects.html',
+                    controller: 'projectsController'
                 });
         });
 
