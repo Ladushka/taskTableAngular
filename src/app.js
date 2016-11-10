@@ -13,6 +13,7 @@
         'pascalprecht.translate',
         'app.users',
         'app.locate',
-        'app.companies'
+        'app.companies',
+        'app.projects'
     ])
 })();

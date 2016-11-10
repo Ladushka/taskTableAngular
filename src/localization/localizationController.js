@@ -8,7 +8,6 @@
                 $translate.use(key);
             };
         });
-
 })();
 
 

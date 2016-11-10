@@ -1,74 +1,107 @@
 [
   {
     "id": 1,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      "ghx"
+    ],
+    "reviews": [
+      {
+        "email": "exadel@exadel.com",
+        "star": "10",
+        "message": "the best"
+      }
+    ]
   },
   {
     "id": 2,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      ""
+    ],
+    "reviews": [
+      {
+        "email": "epam@gmail.com",
+        "star": "",
+        "message": "..."
+      }
+    ]
   },
   {
     "id": 3,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      "mobile application"
+    ],
+    "reviews": [
+      {
+        "email": "anderson@gmail.com",
+        "star": "7",
+        "message": "..."
+      }
+    ]
   },
   {
     "id": 4,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      "VR",
+      "mobile application"
+    ],
+    "reviews": [
+      {
+        "email": "innovationGroup@gmail.com",
+        "star": "8",
+        "message": "interesting"
+      }
+    ]
   },
   {
-    "id":5,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "id": 5,
+    "projects": [
+      ""
+    ],
+    "reviews": [
+      {
+        "email": "mainSoft@gmail.com",
+        "star": "",
+        "message": "..."
+      }
+    ]
   },
   {
     "id": 6,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      ""
+    ],
+    "reviews": [
+      {
+        "email": "coins@gmail.com",
+        "star": "",
+        "message": "..."
+      }
+    ]
   },
   {
     "id": 7,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      ""
+    ],
+    "reviews": [
+      {
+        "email": "samSolutions@gmail.com",
+        "star": "",
+        "message": "..."
+      }
+    ]
   },
   {
     "id": 8,
-    "projects": ["ghx"],
-    "reviews": {
-      "email": "Lenin Square",
-      "star": "Vitebsk",
-      "message": "Belarus"
-    }
+    "projects": [
+      ""
+    ],
+    "reviews": [
+      {
+        "email": "belvest@gmail.com",
+        "star": "",
+        "message": "..."
+      }
+    ]
   }
 ]

@@ -11,7 +11,6 @@
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
-                    console.log(response.data);
                 });
 
                 $scope.companies = usersService.getCompanies();
