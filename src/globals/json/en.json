@@ -13,9 +13,10 @@
   "LAST_NAME": "Last Name",
   "DATE": "Date",
   "COMPANY": "Company",
-  "SEARCH":"Search",
-  "ADDRESS":"Address",
-  "COUNTRY":"Country",
-  "CITY":"City",
-  "STREET":"Street"
+  "SEARCH": "Search",
+  "ADDRESS": "Address",
+  "COUNTRY": "Country",
+  "CITY": "City",
+  "STREET": "Street",
+  "LANGUAGE": "Language"
 }

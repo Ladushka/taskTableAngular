@@ -13,9 +13,10 @@
   "LAST_NAME": "Фамилия",
   "DATE": "Дата",
   "COMPANY": "Компания",
-  "SEARCH":"Поиск",
-  "ADDRESS":"Адрес",
-  "COUNTRY":"Страна",
-  "CITY":"Город",
-  "STREET":"Улица"
+  "SEARCH": "Поиск",
+  "ADDRESS": "Адрес",
+  "COUNTRY": "Страна",
+  "CITY": "Город",
+  "STREET": "Улица",
+  "LANGUAGE": "Язык"
 }
