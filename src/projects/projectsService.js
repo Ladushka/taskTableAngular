@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.projects')
+    angular.module('app.projects',[])
         .service('projectsService',function ($http) {
             var _id;
             return {

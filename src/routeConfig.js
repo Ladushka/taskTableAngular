@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app')
-        .config(function ($routeProvider) {
+        .config(function ($routeProvider, $locationProvider) {
             $routeProvider.when('/users',
                 {
                     templateUrl: 'src/users/users.html',
@@ -23,6 +23,7 @@
                     templateUrl: 'src/projects/projects.html',
                     controller: 'projectsController'
                 });
+            $locationProvider.html5Mode(true);
         });
 
 })();

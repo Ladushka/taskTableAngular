@@ -6,7 +6,8 @@
 
             projectsService.getProjects().then(function (response) {
                 $scope.project = (response.data).filter(function (item) {
-                    return item.id == projectsService.getId();
+                    console.log(this.companyId);
+                    return item.id == $scope.companyId;
                 })[0];
             });
 
