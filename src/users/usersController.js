@@ -3,14 +3,21 @@
 
     angular.module('app.users', [])
 
-        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService',
-            function ($scope, $http, $uibModal, $document, usersService) {
+        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService','datepickerService',
+            function ($scope, $http, $uibModal, $document, usersService,datepickerService) {
+
+                $scope.currentPage = 1;
+                $scope.itemsPerPage=5;
+                $scope.pageChanged = function() {
+                    $scope.gridApi.pagination.seek($scope.currentPage);
+                };
 
                 $scope.gridOptions = usersService.gridOptions().gridOptions;
                 $scope.gridOptions.columnDefs = usersService.gridOptions().columnDefs;
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
+                    $scope.totalItems = response.data.length;
                 });
 
                 $scope.companies = usersService.getCompanies();
@@ -50,6 +57,11 @@
                         $scope.save(user);
                     });
 
+                };
+
+                $scope.openDate=function () {
+                    $scope.popup=datepickerService.popup;
+                    datepickerService.openDatepicker($scope.popup);
                 };
             }]);
 })();

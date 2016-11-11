@@ -1,18 +1,19 @@
 <div id="grid1" ui-grid="gridOptions" ui-grid-pagination ui-grid-selection
      class="grid"></div>
 <!-- control buttons -->
-<button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()" translate>
-    PREVIOUS_PAGE
-</button>
-<button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()" translate>
-    NEXT_PAGE
-</button>
-<div translate>
-    ITEMS_PER_PAGE
-</div>
-<input type="text" size="5px" ng-model="items">
+<ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage" ng-change="pageChanged()"></ul>
+<!--<button type="button" class="btn btn-success" ng-click="gridApi.pagination.previousPage()" translate>-->
+    <!--PREVIOUS_PAGE-->
+<!--</button>-->
+<!--<button type="button" class="btn btn-success" ng-click="gridApi.pagination.nextPage()" translate>-->
+    <!--NEXT_PAGE-->
+<!--</button>-->
+<!--<div translate>-->
+    <!--ITEMS_PER_PAGE-->
+<!--</div>-->
+<!--<input type="text" size="5px" ng-model="items">-->
 
-<button type="button" class="btn btn-success" ng-click="$scope.gridOptions.paginationPageSize = items" translate>
-    SET
-</button>
+<!--<button type="button" class="btn btn-success" ng-click="$scope.gridOptions.paginationPageSize = items" translate>-->
+    <!--SET-->
+<!--</button>-->
 <button type="button" class="btn btn-default" ng-click="getRow()" translate>EDIT</button>

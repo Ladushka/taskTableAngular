@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.projects')
-        .component('companyDetail', {
+        .component('projectsComponent', {
             templateUrl: 'src/projects/projects.html',
             controller: 'projectsController'
         })

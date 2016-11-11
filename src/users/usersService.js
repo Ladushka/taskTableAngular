@@ -7,7 +7,7 @@
             return {
 
                 getPeople: function () {
-                    return $http.get('src/json/users.json');
+                    return $http.get('src/globals/json/users.json');
                 },
                 getCompanies: function () {
                     return ['Exadel', 'Epam', 'Anderson', 'InnovationGroup', 'MainSoft', 'Coins', 'SamSolutions', 'Belvest'];
