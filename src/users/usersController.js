@@ -36,14 +36,19 @@
                 };
 
                 $scope.save = function (user) {
-                    $scope.gridOptions.data = $scope.gridOptions.data.map(function (item) {
-                        if (item.id === user.id) {
-                            return item = user;
-                        }
-                        return item;
-                    });
+                    if(!user.id){
+                        user.id=$scope.gridOptions.data.length+1;
+                        $scope.gridOptions.data.push(user);
+                    }else {
+                        $scope.gridOptions.data = $scope.gridOptions.data.map(function (item) {
+                            if (item.id === user.id) {
+                                return item = user;
+                            }
+                            return item;
+                        });
 
-                    delete $scope.user;
+                        delete $scope.user;
+                    }
                 };
 
                 $scope.open = function (size) {
@@ -62,6 +67,10 @@
                 $scope.openDate=function () {
                     $scope.popup=datepickerService.popup;
                     datepickerService.openDatepicker($scope.popup);
+                };
+
+                $scope.addData = function() {
+                    $scope.open('lg');
                 };
             }]);
 })();
