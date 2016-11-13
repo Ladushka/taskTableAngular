@@ -1,9 +1,11 @@
-<div id="grid1" ui-grid="gridOptions" ui-grid-pagination ui-grid-selection
-     class="grid"></div>
-
-<ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
-    ng-change="pageChanged()"></ul>
 <div>
-    <button type="button" class="btn btn-default" ng-click="getRow()" translate>EDIT</button>
-    <button type="button" id="addData" class="btn btn-success" ng-click="addData()">ADD</button>
+    <div id="grid1" ui-grid="gridOptions" ui-grid-pagination ui-grid-selection
+         class="grid"></div>
+
+    <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
+        ng-change="pageChanged()"></ul>
+    <div>
+        <button type="button" class="btn btn-default" ng-click="getRow()" translate>EDIT</button>
+        <button type="button" id="addData" class="btn btn-success" ng-click="addData()">ADD</button>
+    </div>
 </div>

@@ -1,7 +1,9 @@
 [
   {
-    "id": 1,
-    "name": "Exadel",
+    "company": {
+      "id": 1,
+      "name": "Exadel"
+    },
     "address": {
       "street": "Lenin Square",
       "city": "Vitebsk",
@@ -9,8 +11,10 @@
     }
   },
   {
-    "id": 2,
-    "name": "Epam",
+    "company": {
+      "id": 2,
+      "name": "Epam"
+    },
     "address": {
       "street": "Prospect of builders",
       "city": "Vitebsk",
@@ -18,8 +22,10 @@
     }
   },
   {
-    "id": 3,
-    "name": "Anderson",
+    "company": {
+      "id": 3,
+      "name": "Anderson"
+    },
     "address": {
       "street": "Prospect of builders",
       "city": "Vitebsk",
@@ -27,8 +33,10 @@
     }
   },
   {
-    "id": 4,
-    "name": "InnovationGroup",
+    "company": {
+      "id": 4,
+      "name": "InnovationGroup"
+    },
     "address": {
       "street": "Prospect of builders",
       "city": "Vitebsk",
@@ -36,8 +44,10 @@
     }
   },
   {
-    "id":5,
-    "name": "MainSoft",
+    "company": {
+      "id": 5,
+      "name": "MainSoft"
+    },
     "address": {
       "street": "Lenin Square",
       "city": "Vitebsk",
@@ -45,8 +55,10 @@
     }
   },
   {
-    "id": 6,
-    "name": "Coins",
+    "company": {
+      "id": 6,
+      "name": "Coins"
+    },
     "address": {
       "street": "",
       "city": "Vitebsk",
@@ -54,8 +66,10 @@
     }
   },
   {
-    "id": 7,
-    "name": "SamSolutions",
+    "company": {
+      "id": 7,
+      "name": "SamSolutions"
+    },
     "address": {
       "street": "",
       "city": "Vitebsk",
@@ -63,8 +77,10 @@
     }
   },
   {
-    "id": 8,
-    "name": "Belvest",
+    "company": {
+      "id": 8,
+      "name": "Belvest"
+    },
     "address": {
       "street": "",
       "city": "Vitebsk",
