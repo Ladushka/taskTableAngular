@@ -18,5 +18,8 @@
   "COUNTRY": "Страна",
   "CITY": "Город",
   "STREET": "Улица",
-  "LANGUAGE": "Язык"
+  "LANGUAGE": "Язык",
+  "PASSPORT": "Паспорт",
+  "ADD": "Добавить",
+  "COMPANY_NAME": "Имя компании"
 }

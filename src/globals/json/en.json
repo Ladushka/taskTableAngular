@@ -18,5 +18,8 @@
   "COUNTRY": "Country",
   "CITY": "City",
   "STREET": "Street",
-  "LANGUAGE": "Language"
+  "LANGUAGE": "Language",
+  "PASSPORT": "Passport",
+  "ADD": "Add",
+  "COMPANY_NAME": "Company Name"
 }

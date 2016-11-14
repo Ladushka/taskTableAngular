@@ -17,7 +17,7 @@
                             paginationPageSize: 5
                         },
                         columnDefs: [
-                            {name: 'company', cellTemplate: 'src/companies/href.html'}
+                            {name: 'company', cellTemplate: '<div class="ui-grid-cell-contents"><a href="/about/{{COL_FIELD.id}}">{{COL_FIELD.name}}</a></div>'}
                         ]
                     };
                 }

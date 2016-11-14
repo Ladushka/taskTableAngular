@@ -64,6 +64,26 @@
 
                 };
 
+                $scope.openUser = function (grid,row) {
+
+                    $scope.user=angular.copy(row.entity);
+
+                    var modalInstance = $uibModal.open({
+                        animation: $scope.animationsEnabled,
+                        templateUrl: 'src/users/editUser.html',
+                        size: 'sm',
+                        scope: $scope
+                    });
+                    modalInstance.result.then(function (user) {
+                        $scope.save(user);
+                    });
+                };
+
+                $scope.editUser=function () {
+                    document.all.set.disabled=false;
+                };
+
+
                 $scope.openDate=function () {
                     $scope.popup=datepickerService.popup;
                     datepickerService.openDatepicker($scope.popup);
@@ -72,5 +92,6 @@
                 $scope.addData = function() {
                     $scope.open('lg');
                 };
+
             }]);
 })();

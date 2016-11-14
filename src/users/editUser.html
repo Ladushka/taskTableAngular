@@ -1,0 +1,33 @@
+<div class="modal-header">
+    {{user.lastName}}
+</div>
+<div class="modal-body" id="modal-body">
+    <!--Form-->
+
+    <form name="editUserForm" novalidate class="simple-form">
+        <fieldset id="set" disabled="disabled">
+            <translate>FIRST_NAME</translate>
+            : <input type="text" class="form-control" ng-model="user.firstName" required/><br/>
+
+            <translate>LAST_NAME</translate>
+            : <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
+
+            <translate>PASSPORT</translate>
+            : <input type="text" class="form-control" ng-model="user.passport" required/><br/>
+
+            <translate>COUNTRY</translate>
+            : <input type="text" class="form-control" ng-model="user.address.country" required/><br/>
+
+            <translate>CITY</translate>
+            : <input type="text" class="form-control" ng-model="user.address.city" required/><br/>
+
+            <translate>STREET</translate>
+            : <input type="text" class="form-control" ng-model="user.address.street" required/><br/>
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="editUser()" translate>EDIT</button>
+    <input type="submit" class="btn btn-primary" ng-click="$close(user)" value="Submit"
+           ng-disabled="editForm.$invalid"/>
+</div>
