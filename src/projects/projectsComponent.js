@@ -3,15 +3,15 @@
 
     angular.module('app.projects')
         .component('projectsComponent', {
-            templateUrl: 'src/projects/projects.html',
             bindings: {
                 companyId: '='
             },
+            templateUrl: 'src/projects/projects.html',
             controller: function ($scope, projectsService) {
-                console.log(this.companyId);
+                $scope.companyId = this.companyId;
+                console.log(this);
                 projectsService.getProjects().then(function (response) {
                     $scope.project = (response.data).filter(function (item) {
-
                         return item.id == $scope.companyId;
                     })[0];
                 });
