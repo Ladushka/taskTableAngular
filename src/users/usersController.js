@@ -3,12 +3,12 @@
 
     angular.module('app.users', [])
 
-        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService','datepickerService',
-            function ($scope, $http, $uibModal, $document, usersService,datepickerService) {
+        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService', 'datepickerService',
+            function ($scope, $http, $uibModal, $document, usersService, datepickerService) {
 
                 $scope.currentPage = 1;
-                $scope.itemsPerPage=5;
-                $scope.pageChanged = function() {
+                $scope.itemsPerPage = 5;
+                $scope.pageChanged = function () {
                     $scope.gridApi.pagination.seek($scope.currentPage);
                 };
 
@@ -36,10 +36,11 @@
                 };
 
                 $scope.save = function (user) {
-                    if(!user.id){
-                        user.id=$scope.gridOptions.data.length+1;
+
+                    if (!user.id) {
+                        user.id = $scope.gridOptions.data.length + 1;
                         $scope.gridOptions.data.push(user);
-                    }else {
+                    } else {
                         $scope.gridOptions.data = $scope.gridOptions.data.map(function (item) {
                             if (item.id === user.id) {
                                 return item = user;
@@ -64,9 +65,9 @@
 
                 };
 
-                $scope.openUser = function (grid,row) {
+                $scope.openUser = function (row) {
 
-                    $scope.user=angular.copy(row.entity);
+                    $scope.user = angular.copy(row.entity);
 
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
@@ -79,17 +80,17 @@
                     });
                 };
 
-                $scope.editUser=function () {
-                    document.all.set.disabled=false;
+                $scope.editUser = function () {
+                    document.all.set.disabled = false;
                 };
 
 
-                $scope.openDate=function () {
-                    $scope.popup=datepickerService.popup;
+                $scope.openDate = function () {
+                    $scope.popup = datepickerService.popup;
                     datepickerService.openDatepicker($scope.popup);
                 };
 
-                $scope.addData = function() {
+                $scope.addUser = function () {
                     $scope.open('lg');
                 };
 

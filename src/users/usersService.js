@@ -23,13 +23,12 @@
                         },
                         columnDefs: [
                             {name: 'id'},
-                            {name: 'firstName',cellTemplate:'<div class="ui-grid-cell-contents"><a type="button" ng-click="grid.appScope.openUser(grid,row)">{{COL_FIELD}}</a></div>'},
+                            {name: 'firstName',cellTemplate:'<div class="ui-grid-cell-contents"><a type="button" ng-click="grid.appScope.openUser(row)">{{COL_FIELD}}</a></div>'},
                             {name: 'lastName'},
                             {name: 'date'},
                             {name: 'company'}
                         ]
-                    }
-
+                    };
                 }
             };
         });

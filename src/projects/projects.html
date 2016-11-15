@@ -1,26 +1,34 @@
-
 <div>
     <section class="tab">
         <ul class="nav nav-pills">
-            <uib-tabset active="activeProjects" justified="true">
-                <uib-tab index="0" heading="Projects">
-                    <ul>
-                        <li ng-repeat="proj in project.projects">{{proj}} </li>
-                    </ul>
-                </uib-tab>
-                <uib-tab index="1" heading="Reviews">
-                    <dl class="dl-horizontal" ng-repeat="review in project.reviews">
-                        <dt>e-mail</dt>
-                        <dd>{{review.email}}</dd>
-                        <dt>rating</dt>
-                        <dd>
-                            <progress value="{{review.star}}" max="10"></progress>
-                        </dd>
-                        <dt>message</dt>
-                        <dd>{{review.message}}</dd>
-                    </dl>
-                </uib-tab>
-            </uib-tabset>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="thumbnail">
+                        <uib-tabset active="activeProjects" justified="true">
+                            <uib-tab index="0" heading="Projects">
+                                <ul>
+                                    <li ng-repeat="proj in project.projects">{{proj}}</li>
+                                </ul>
+                            </uib-tab>
+                            <uib-tab index="1" heading="Reviews">
+                                   <br>
+                                    <dl class="dl-horizontal" ng-repeat="review in project.reviews">
+                                        <dt>e-mail</dt>
+                                        <dd>{{review.email}}</dd>
+                                        <dt>rating</dt>
+                                        <dd>
+                                            <progress value="{{review.star}}" max="10"></progress>
+                                        </dd>
+                                        <dt>message</dt>
+                                        <dd>{{review.message}}</dd>
+                                    </dl>
+                                    <br>
+                                    <button type="button" class="btn btn-primary">Оставить комментарий</button>
+                            </uib-tab>
+                        </uib-tabset>
+                    </div>
+                </div>
+            </div>
         </ul>
     </section>
 </div>

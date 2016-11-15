@@ -75,7 +75,7 @@
 header {
     width: 100%;
     background: #D8E3AB;
-    height: 20%;
+    height: 15%;
 }
 
 .title {
@@ -92,4 +92,11 @@ progress {
     border: 0;
     height: 18px;
     border-radius: 9px;
+}
+.component{
+    align-content: center;
+    width: 10%;
+}
+form.tab-form-demo .tab-pane {
+    margin: 20px 20px;
 }
