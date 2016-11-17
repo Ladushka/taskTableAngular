@@ -13,7 +13,6 @@
                 };
 
                 $scope.gridOptions = usersService.gridOptions().gridOptions;
-                //$scope.gridOptions.columnDefs = usersService.gridOptions().columnDefs;
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;

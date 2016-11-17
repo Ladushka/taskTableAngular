@@ -10,6 +10,7 @@
         'ngSanitize',
         'ui.bootstrap',
         'ngRoute',
+        'ngTouch',
         'pascalprecht.translate',
         'app.users',
         'app.locate',

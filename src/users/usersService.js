@@ -15,6 +15,8 @@
                 gridOptions: function () {
                     return {
                         gridOptions: {
+                            enableFiltering: true,
+                            enableGridMenu: true,
                             enablePaginationControls: false,
                             enableRowSelection: true,
                             selectionRowHeaderWidth: 35,

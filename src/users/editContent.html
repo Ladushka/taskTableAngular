@@ -7,6 +7,7 @@
 
     <form name="editForm" novalidate class="simple-form">
         <!--Id-->
+        <div class="row col-md-6">
         Id: <input name="id" type="number" class="form-control" ng-model="user.id" readonly="readonly"/><br/>
         <!--Name-->
         <translate>FIRST_NAME</translate>
@@ -15,25 +16,27 @@
         <translate>LAST_NAME</translate>
         : <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
         <!--Data-->
-        <div class="input-group">
-            <span class="input-group-btn">
+        <translate>DATE</translate>:
+            <div class="input-group">
+                 <input type="text" class="form-control"
+                         uib-datepicker-popup
+                         ng-model="user.date"
+                         required
+                         is-open="popup.opened"
+                         datepicker-options="dateOptions"/><br/>
+                <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="openDate()"><i
                                         class="glyphicon glyphicon-calendar"></i></button>
                             </span>
-            <translate>DATE</translate>
-            : <input type="text" class="form-control"
-                     uib-datepicker-popup
-                     ng-model="user.date"
-                     required
-                     is-open="popup.opened"
-                     datepicker-options="dateOptions"/><br/>
-        </div>
+            </div>
+
         <!--Company-->
         <div class='container-fluid uib-typeahead-demo' ng-controller="usersController" required>
             <translate>COMPANY</translate>
             :<input type="text" ng-model="user.company"
                     uib-typeahead="company for company in companies | filter:$viewValue"
                     class="form-control"><br/>
+        </div>
         </div>
     </form>
 </div>
