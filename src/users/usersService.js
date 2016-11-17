@@ -19,15 +19,20 @@
                             enableRowSelection: true,
                             selectionRowHeaderWidth: 35,
                             rowHeight: 35,
-                            paginationPageSize: 5
-                        },
-                        columnDefs: [
-                            {name: 'id'},
-                            {name: 'firstName',cellTemplate:'<div class="ui-grid-cell-contents"><a type="button" ng-click="grid.appScope.openUser(row)">{{COL_FIELD}}</a></div>'},
-                            {name: 'lastName'},
-                            {name: 'date'},
-                            {name: 'company'}
-                        ]
+                            paginationPageSize: 5,
+                            enableHorizontalScrollbar: 0,
+                            enableVerticalScrollbar: 2,
+                            columnDefs: [
+                                {name: 'id'},
+                                {
+                                    name: 'firstName',
+                                    cellTemplate: '<div class="ui-grid-cell-contents curs"><a type="button" ng-click="grid.appScope.openUser(row)">{{COL_FIELD}}</a></div>'
+                                },
+                                {name: 'lastName'},
+                                {name: 'date'},
+                                {name: 'company'}
+                            ]
+                        }
                     };
                 }
             };

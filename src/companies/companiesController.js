@@ -12,7 +12,7 @@
             };
 
             $scope.gridOptions = companiesService.gridOptions().gridOptions;
-            $scope.gridOptions.columnDefs = companiesService.gridOptions().columnDefs;
+            //$scope.gridOptions.columnDefs = companiesService.gridOptions().columnDefs;
 
             $scope.gridOptions.onRegisterApi = function (gridApi) {
                 $scope.gridApi = gridApi;

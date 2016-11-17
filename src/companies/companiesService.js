@@ -14,11 +14,11 @@
                             enableRowSelection: true,
                             selectionRowHeaderWidth: 35,
                             rowHeight: 35,
-                            paginationPageSize: 5
-                        },
-                        columnDefs: [
-                            {name: 'company', cellTemplate: '<div class="ui-grid-cell-contents"><a href="/about/{{COL_FIELD.id}}">{{COL_FIELD.name}}</a></div>'}
-                        ]
+                            paginationPageSize: 5,
+                            columnDefs: [
+                                {name: 'company', cellTemplate: '<div class="ui-grid-cell-contents"><a href="/about/{{COL_FIELD.id}}">{{COL_FIELD.name}}</a></div>'}
+                            ]
+                        }
                     };
                 }
             };
