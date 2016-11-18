@@ -9,9 +9,6 @@
                 getPeople: function () {
                     return $http.get('src/globals/json/users.json');
                 },
-                getCompanies: function () {
-                    return ['Exadel', 'Epam', 'Anderson', 'InnovationGroup', 'MainSoft', 'Coins', 'SamSolutions', 'Belvest'];
-                },
                 gridOptions: function () {
                     return {
                         gridOptions: {
@@ -32,7 +29,10 @@
                                 },
                                 {name: 'lastName'},
                                 {name: 'date'},
-                                {name: 'company'}
+                                {
+                                    name: 'company',
+                                    cellTemplate: '<div class="ui-grid-cell-contents"><a  href="/about/{{grid.appScope.companyId(row)}}">{{COL_FIELD}}</a></div>'
+                                }
                             ]
                         }
                     };

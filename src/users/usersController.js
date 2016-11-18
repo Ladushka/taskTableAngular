@@ -3,8 +3,8 @@
 
     angular.module('app.users', [])
 
-        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService', 'datepickerService',
-            function ($scope, $http, $uibModal, $document, usersService, datepickerService) {
+        .controller('usersController', ['$scope', '$http', '$uibModal', '$document', 'usersService', 'datepickerService', 'companiesService',
+            function ($scope, $http, $uibModal, $document, usersService, datepickerService, companiesService) {
 
                 $scope.currentPage = 1;
                 $scope.itemsPerPage = 5;
@@ -19,7 +19,12 @@
                     $scope.totalItems = response.data.length;
                 });
 
-                $scope.companies = usersService.getCompanies();
+                companiesService.getCompanies().then(function (response) {
+                    $scope.companies = response.data.map(function (item) {
+                        return item.company;
+                    });
+                    $scope.companyCount = $scope.companies.length;
+                });
 
                 $scope.getRow = function () {
                     if ($scope.gridApi.selection.getSelectedRows().length === 1) {
@@ -91,6 +96,15 @@
 
                 $scope.addUser = function () {
                     $scope.open('lg');
+                };
+
+
+                $scope.companyId = function (row) {
+                    for (var i = 0; i < $scope.companyCount; i++) {
+                        if (row.entity.company == $scope.companies[i].name) {
+                            return $scope.companies[i].id;
+                        }
+                    }
                 };
 
             }]);

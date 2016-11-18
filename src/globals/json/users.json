@@ -3,7 +3,7 @@
     "id": 1,
     "firstName": "Cox",
     "lastName": "Carney",
-    "company": "Enormo",
+    "company": "Exadel",
     "date": "2016-10-20",
     "passport": "5465565",
     "address": {
@@ -16,7 +16,7 @@
     "id": 2,
     "firstName": "Lorraine",
     "lastName": "Wise",
-    "company": "Comveyer",
+    "company": "Epam",
     "date": "2016-10-20",
     "passport": "787878",
     "address": {
@@ -29,7 +29,7 @@
     "id": 3,
     "firstName": "Nancy",
     "lastName": "Waters",
-    "company": "Fuelton",
+    "company": "InnovationGroup",
     "date": "2016-10-20",
     "passport": "567888",
     "address": {
@@ -42,7 +42,7 @@
     "id": 4,
     "firstName": "Cox",
     "lastName": "Carney",
-    "company": "Enormo",
+    "company": "SamSolutions",
     "date": "2016-10-20",
     "passport": "999999",
     "address": {
@@ -55,7 +55,7 @@
     "id": 5,
     "firstName": "Lorraine",
     "lastName": "Wise",
-    "company": "Comveyer",
+    "company": "Coins",
     "date": "2016-10-20",
     "passport": "234322",
     "address": {
@@ -68,7 +68,7 @@
     "id": 6,
     "firstName": "Nancy",
     "lastName": "Waters",
-    "company": "Fuelton",
+    "company": "MainSoft",
     "date": "2016-10-20",
     "passport": "123221",
     "address": {
@@ -81,7 +81,7 @@
     "id": 7,
     "firstName": "Cox",
     "lastName": "Carney",
-    "company": "Enormo",
+    "company": "Belvest",
     "date": "2016-10-20",
     "passport": "111222",
     "address": {
@@ -94,7 +94,7 @@
     "id": 8,
     "firstName": "Lorraine",
     "lastName": "Wise",
-    "company": "Comveyer",
+    "company": "Anderson",
     "date": "2016-10-20",
     "passport": "147825",
     "address": {
@@ -107,7 +107,7 @@
     "id": 9,
     "firstName": "Nancy",
     "lastName": "Waters",
-    "company": "Fuelton",
+    "company": "Epam",
     "date": "2016-10-20",
     "passport": "568541",
     "address": {
@@ -120,7 +120,7 @@
     "id": 10,
     "firstName": "Cox",
     "lastName": "Carney",
-    "company": "Enormo",
+    "company": "Anderson",
     "date": "2016-10-20",
     "passport": "345123",
     "address": {
@@ -133,7 +133,7 @@
     "id": 11,
     "firstName": "Lorraine",
     "lastName": "Wise",
-    "company": "Comveyer",
+    "company": "InnovationGroup",
     "date": "2016-10-20",
     "passport": "867678",
     "address": {
@@ -146,7 +146,7 @@
     "id": 12,
     "firstName": "Nancy",
     "lastName": "Waters",
-    "company": "Fuelton",
+    "company": "Exadel",
     "date": "2016-10-20",
     "passport": "232444",
     "address": {
