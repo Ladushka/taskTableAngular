@@ -12,7 +12,7 @@
             };
 
             $scope.gridOptions = companiesService.gridOptions().gridOptions;
-            //$scope.gridOptions.columnDefs = companiesService.gridOptions().columnDefs;
+
 
             $scope.gridOptions.onRegisterApi = function (gridApi) {
                 $scope.gridApi = gridApi;
@@ -27,7 +27,12 @@
                 $scope.totalItems = response.data.length;
             });
 
-            $scope.open = function (size) {
+            $scope.getCompany = function () {
+                $scope.companyEdit = angular.copy($scope.company);
+                $scope.openEditCompany('lg');
+            };
+
+            $scope.openAddCompany = function (size) {
                 var modalInstance = $uibModal.open({
                     animation: $scope.animationsEnabled,
                     templateUrl: 'src/companies/addCompany.html',
@@ -39,16 +44,31 @@
                 });
             };
 
+            $scope.openEditCompany = function (size) {
+                var modalInstance = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: 'src/companies/editCompany.html',
+                    size: size,
+                    scope: $scope
+                });
+                modalInstance.result.then(function (company) {
+                    $scope.save(company);
+                });
+            };
+
             $scope.addCompany = function () {
-                $scope.open('lg');
+                $scope.openAddCompany('lg');
             };
 
             $scope.save = function (company) {
-                company.company.id = $scope.gridOptions.data.length + 1;
-                $scope.gridOptions.data.push(company);
-
+                if (!company.company.id) {
+                    company.company.id = $scope.gridOptions.data.length + 1;
+                    $scope.gridOptions.data.push(company);
+                } else {
+                    $scope.company = $scope.companyEdit;
+                }
+                delete $scope.companyEdit;
             };
 
-            // projectsService.sendId($routeParams.companyID);
         });
 })();

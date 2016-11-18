@@ -21,5 +21,6 @@
   "LANGUAGE": "Language",
   "PASSPORT": "Passport",
   "ADD": "Add",
-  "COMPANY_NAME": "Company Name"
+  "COMPANY_NAME": "Company Name",
+  "CANCEL":"Cancel"
 }

@@ -103,3 +103,7 @@ form.tab-form-demo .tab-pane {
 .curs{
     cursor: pointer;
 }
+
+#modal-content{
+    width: 500px;
+}

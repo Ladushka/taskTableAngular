@@ -1,0 +1,24 @@
+<div class="modal-header">
+</div>
+<div class="modal-body" id="modal-body">
+    <!--Form-->
+
+    <form name="editForm" novalidate class="simple-form">
+
+        <translate>COMPANY_NAME</translate>
+        : <input type="text" class="form-control" ng-model="companyEdit.company.name" required/><br/>
+
+        <translate>COUNTRY</translate>
+        : <input type="text" class="form-control" ng-model="companyEdit.address.country" required/>
+
+        <translate>CITY</translate>
+        : <input type="text" class="form-control" ng-model="companyEdit.address.city" required/><br/>
+
+        <translate>STREET</translate>
+        : <input type="text" class="form-control" ng-model="companyEdit.address.street" required/><br/>
+    </form>
+</div>
+<div class="modal-footer">
+    <input type="submit" class="btn btn-primary" ng-click="$close(company)" value="Submit"
+           ng-disabled="editForm.$invalid"/>
+</div>

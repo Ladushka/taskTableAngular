@@ -34,6 +34,9 @@
                         alert("Выделите ячейку");
                     }
                 };
+                $scope.cancel = function () {
+                    $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
+                };
 
                 $scope.gridOptions.onRegisterApi = function (gridApi) {
                     $scope.gridApi = gridApi;
