@@ -28,10 +28,13 @@
                                     cellTemplate: '<div class="ui-grid-cell-contents curs"><a type="button" ng-click="grid.appScope.openUser(row)">{{COL_FIELD}}</a></div>'
                                 },
                                 {name: 'lastName'},
-                                {name: 'date'},
                                 {
                                     name: 'company',
                                     cellTemplate: '<div class="ui-grid-cell-contents"><a  href="/about/{{grid.appScope.companyId(row)}}">{{COL_FIELD}}</a></div>'
+                                },
+                                {
+                                    name: 'date',
+                                    cellTemplate: '<em>{{COL_FIELD | date:"yyyy-MM-dd" }}</em>'
                                 }
                             ]
                         }
