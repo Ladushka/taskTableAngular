@@ -72,9 +72,24 @@
 
                 };
 
+
+                $scope.openDate = function () {
+                    $scope.popup = datepickerService.popup;
+                    datepickerService.openDatepicker($scope.popup);
+                };
+
+                $scope.companyId = function (row) {
+                    for (var i = 0; i < $scope.companyCount; i++) {
+                        if (row.entity.company == $scope.companies[i].name) {
+                            return $scope.companies[i].id;
+                        }
+                    }
+                };
+
                 $scope.openUser = function (row) {
 
                     $scope.user = angular.copy(row.entity);
+                    $scope.copyUser = angular.copy(row.entity);
 
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
@@ -91,27 +106,12 @@
                     document.all.set.disabled = false;
                 };
 
-               /* $scope.cancelEditUser = function (row) {
-                  //  console.log(row);
-                };*/
-
-
-                $scope.openDate = function () {
-                    $scope.popup = datepickerService.popup;
-                    datepickerService.openDatepicker($scope.popup);
+                $scope.cancelEditUser = function () {
+                    $scope.user = angular.copy($scope.copyUser);
                 };
 
                 $scope.addUser = function () {
                     $scope.open('lg');
-                };
-
-
-                $scope.companyId = function (row) {
-                    for (var i = 0; i < $scope.companyCount; i++) {
-                        if (row.entity.company == $scope.companies[i].name) {
-                            return $scope.companies[i].id;
-                        }
-                    }
                 };
 
             }]);

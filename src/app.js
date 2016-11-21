@@ -17,5 +17,5 @@
         'app.companies',
         'app.projects'
     ]);
-    
+
 })();
