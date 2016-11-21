@@ -11,19 +11,19 @@
                                 </ul>
                             </uib-tab>
                             <uib-tab index="1" heading="Reviews">
-                                   <br>
-                                    <dl class="dl-horizontal" ng-repeat="review in project.reviews">
-                                        <dt>e-mail</dt>
-                                        <dd>{{review.email}}</dd>
-                                        <dt>rating</dt>
-                                        <dd>
-                                            <progress value="{{review.star}}" max="10"></progress>
-                                        </dd>
-                                        <dt>message</dt>
-                                        <dd>{{review.message}}</dd>
-                                    </dl>
-                                    <br>
-                                    <button type="button" class="btn btn-primary">Оставить комментарий</button>
+                                <br>
+                                <dl class="dl-horizontal" ng-repeat="review in project.reviews">
+                                    <dt>e-mail</dt>
+                                    <dd>{{review.email}}</dd>
+                                    <dt>rating</dt>
+                                    <dd>
+                                        <progress value="{{review.star}}" max="10"></progress>
+                                    </dd>
+                                    <dt>message</dt>
+                                    <dd>{{review.message}}</dd>
+                                </dl>
+                                <br>
+                                <button type="button" class="btn btn-primary">Оставить комментарий</button>
                             </uib-tab>
                         </uib-tabset>
                     </div>

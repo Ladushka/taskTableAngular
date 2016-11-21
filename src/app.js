@@ -16,5 +16,6 @@
         'app.locate',
         'app.companies',
         'app.projects'
-    ])
+    ]);
+    
 })();

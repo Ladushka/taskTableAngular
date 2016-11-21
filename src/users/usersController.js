@@ -31,7 +31,7 @@
                         $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
                         $scope.open('lg');
                     } else {
-                        alert("Выделите ячейку");
+                        alert('Выделите ячейку');
                     }
                 };
                 $scope.cancel = function () {
@@ -90,6 +90,10 @@
                 $scope.editUser = function () {
                     document.all.set.disabled = false;
                 };
+
+               /* $scope.cancelEditUser = function (row) {
+                  //  console.log(row);
+                };*/
 
 
                 $scope.openDate = function () {
