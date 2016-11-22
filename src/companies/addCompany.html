@@ -6,20 +6,21 @@
     <form name="addForm" novalidate class="simple-form">
 
         <translate>COMPANY_NAME</translate>
-        : <input type="text" class="form-control" ng-model="company.company.name" required/><br/>
+        : <input name="add" type="text" class="form-control" ng-model="company.company.name" required/><br/>
 
         <translate>COUNTRY</translate>
-        : <input type="text" class="form-control" ng-model="company.address.country" required/>
+        : <input name="add" type="text" class="form-control" ng-model="company.address.country" required/>
 
         <translate>CITY</translate>
-        : <input type="text" class="form-control" ng-model="company.address.city" required/><br/>
+        : <input name="add" type="text" class="form-control" ng-model="company.address.city" required/><br/>
 
         <translate>STREET</translate>
-        : <input type="text" class="form-control" ng-model="company.address.street" required/><br/>
+        : <input name="add" type="text" class="form-control" ng-model="company.address.street" required/><br/>
 
     </form>
 </div>
 <div class="modal-footer">
     <input type="submit" class="btn btn-primary" ng-click="$close(company)" value="Submit"
            ng-disabled="editForm.$invalid"/>
+    <button type="button" class="btn btn-default" ng-click="cancelCompany()" translate>CANCEL</button>
 </div>

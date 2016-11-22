@@ -70,9 +70,20 @@
                 delete $scope.companyEdit;
             };
 
-            $scope.cancelEditCompany = function () {
-                $scope.companyEdit = angular.copy($scope.company);
+            $scope.cancelCompany = function () {
+
+                if($scope.company) {
+                    $scope.companyEdit = angular.copy($scope.company);
+                }else{
+                    (document.forms[0].elements.add).forEach(function (item) {
+                        item.value = '';
+                    });
+                    delete $scope.company;
+                }
+
             };
+
+
 
         });
 })();
