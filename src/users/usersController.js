@@ -16,6 +16,10 @@
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
+                    ($scope.gridOptions.data).forEach(function (item) {
+                        item.date=new Date(item.date);
+                    });
+
                     $scope.totalItems = response.data.length;
                 });
 
@@ -71,7 +75,6 @@
                     });
 
                 };
-
 
                 $scope.openDate = function () {
                     $scope.popup = datepickerService.popup;
