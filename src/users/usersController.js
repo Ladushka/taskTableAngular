@@ -17,7 +17,7 @@
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
                     ($scope.gridOptions.data).forEach(function (item) {
-                        item.date=new Date(item.date);
+                        item.date = new Date(item.date);
                     });
 
                     $scope.totalItems = response.data.length;
@@ -38,6 +38,7 @@
                         alert('Выделите ячейку');
                     }
                 };
+
                 $scope.cancel = function () {
                     $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
                 };
@@ -58,7 +59,6 @@
                             }
                             return item;
                         });
-
                         delete $scope.user;
                     }
                 };
@@ -110,7 +110,18 @@
                 };
 
                 $scope.cancelEditUser = function () {
-                    $scope.user = angular.copy($scope.copyUser);
+                    $scope.user = $scope.copyUser;
+                };
+
+                $scope.cancelEditContent = function () {
+                    if ($scope.gridApi.selection.getSelectedRows().length === 1) {
+                        $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
+                    } else {
+                        (document.forms[0].elements.form).forEach(function (item) {
+                            item.value = '';
+                        });
+                        delete $scope.user;
+                    }
                 };
 
                 $scope.addUser = function () {

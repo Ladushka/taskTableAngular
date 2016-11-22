@@ -7,18 +7,18 @@
     <form name="editForm" novalidate class="simple-form">
         <!--Id-->
 
-        Id: <input name="id" type="number" class="form-control" ng-model="user.id" readonly="readonly"/><br/>
+        Id: <input name="form" type="number" class="form-control" ng-model="user.id" readonly="readonly"/><br/>
         <!--Name-->
         <translate>FIRST_NAME</translate>
-        : <input type="text" class="form-control" ng-model="user.firstName" required/>
+        : <input name="form" type="text" class="form-control" ng-model="user.firstName" required/>
         <!--Surname-->
         <translate>LAST_NAME</translate>
-        : <input type="text" class="form-control" ng-model="user.lastName" required/><br/>
+        : <input name="form" type="text" class="form-control" ng-model="user.lastName" required/><br/>
         <!--Data-->
         <translate>DATE</translate>
         :
         <div class="input-group">
-            <input type="text" class="form-control"
+            <input name="form" type="text" class="form-control"
                    uib-datepicker-popup
                    ng-model="user.date"
                    required
@@ -33,7 +33,7 @@
         <!--Company-->
         <div class='container-fluid uib-typeahead-demo' ng-controller="usersController" required>
             <translate>COMPANY</translate>
-            :<input type="text" ng-model="user.company"
+            :<input name="form" type="text" ng-model="user.company"
                     uib-typeahead="company.name for company in companies | filter:$viewValue"
                     class="form-control"><br/>
         </div>
@@ -43,7 +43,7 @@
 <div class="modal-footer">
     <input type="submit" class="btn btn-primary" ng-click="$close(user)" value="Submit"
            ng-disabled="editForm.$invalid"/>
-    <button type="button" class="btn btn-default" ng-click="getRow()" translate>CANCEL</button>
+    <button type="button" class="btn btn-default" ng-click="cancelEditContent()" translate>CANCEL</button>
 </div>
 
 
