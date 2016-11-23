@@ -4,10 +4,6 @@
     },
     "extends": "eslint:recommended",
     "rules": {
-        "indent": [
-            "warn",
-            4
-        ],
         "linebreak-style": [
             "error",
             "windows"
