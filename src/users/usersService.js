@@ -5,7 +5,6 @@
 
         .service('usersService', function ($http) {
             return {
-
                 getPeople: function () {
                     return $http.get('src/globals/json/users.json');
                 },

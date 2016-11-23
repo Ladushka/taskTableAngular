@@ -16,7 +16,11 @@
             : <input type="text" class="form-control" ng-model="user.passport" required/><br/>
 
             <translate>COUNTRY</translate>
-            : <input type="text" class="form-control" ng-model="user.address.country" required/><br/>
+            : <input type="text"
+                     class="form-control"
+                     ng-model="user.address.country"
+                     uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8"
+                     required/><br/>
 
             <translate>CITY</translate>
             : <input type="text" class="form-control" ng-model="user.address.city" required/><br/>

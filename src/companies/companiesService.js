@@ -7,6 +7,9 @@
                 getCompanies: function () {
                     return $http.get('src/globals/json/companies.json');
                 },
+                getCountries: function () {
+                    return $http.get('src/globals/json/countries.json');
+                },
                 gridOptions: function () {
                     return {
                         gridOptions: {

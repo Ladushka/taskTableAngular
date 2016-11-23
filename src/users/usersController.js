@@ -33,7 +33,7 @@
                 $scope.getRow = function () {
                     if ($scope.gridApi.selection.getSelectedRows().length === 1) {
                         $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
-                        $scope.open('lg');
+                        $scope.open();
                     } else {
                         alert('Выделите ячейку');
                     }
@@ -63,11 +63,11 @@
                     }
                 };
 
-                $scope.open = function (size) {
+                $scope.open = function () {
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
                         templateUrl: 'src/users/editContent.html',
-                        size: size,
+                        size: 'lg',
                         scope: $scope
                     });
                     modalInstance.result.then(function (user) {
@@ -93,6 +93,12 @@
 
                     $scope.user = angular.copy(row.entity);
                     $scope.copyUser = angular.copy(row.entity);
+
+                    companiesService.getCountries().then(function (response) {
+                        $scope.countries=(response.data).map(function (item) {
+                            return item.name;
+                        });
+                    });
 
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
@@ -122,10 +128,6 @@
                         });
                         delete $scope.user;
                     }
-                };
-
-                $scope.addUser = function () {
-                    $scope.open('lg');
                 };
 
             }]);

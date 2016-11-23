@@ -27,37 +27,24 @@
                 $scope.totalItems = response.data.length;
             });
 
-            $scope.getCompany = function () {
+            $scope.openCompany = function () {
+
                 $scope.companyEdit = angular.copy($scope.company);
-                $scope.openEditCompany('lg');
-            };
-
-            $scope.openAddCompany = function (size) {
-                var modalInstance = $uibModal.open({
-                    animation: $scope.animationsEnabled,
-                    templateUrl: 'src/companies/addCompany.html',
-                    size: size,
-                    scope: $scope
+                companiesService.getCountries().then(function (response) {
+                    $scope.countries = (response.data).map(function (item) {
+                        return item.name;
+                    });
                 });
-                modalInstance.result.then(function (company) {
-                    $scope.save(company);
-                });
-            };
 
-            $scope.openEditCompany = function (size) {
                 var modalInstance = $uibModal.open({
                     animation: $scope.animationsEnabled,
                     templateUrl: 'src/companies/editCompany.html',
-                    size: size,
+                    size: 'lg',
                     scope: $scope
                 });
                 modalInstance.result.then(function (company) {
                     $scope.save(company);
                 });
-            };
-
-            $scope.addCompany = function () {
-                $scope.openAddCompany('lg');
             };
 
             $scope.save = function (company) {
@@ -72,18 +59,16 @@
 
             $scope.cancelCompany = function () {
 
-                if($scope.company) {
+                if ($scope.company) {
                     $scope.companyEdit = angular.copy($scope.company);
-                }else{
-                    (document.forms[0].elements.add).forEach(function (item) {
+                } else {
+                    (document.forms[0].elements.editCompany).forEach(function (item) {
                         item.value = '';
                     });
                     delete $scope.company;
                 }
 
             };
-
-
 
         });
 })();
