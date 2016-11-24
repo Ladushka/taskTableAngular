@@ -10,9 +10,9 @@ engines:
       - javascript
 ratings:
   paths:
-  - src/**
+  - src/
   - lib/**
   - "**.rb"
   - "**.go"
 exclude_paths:
-- src/**/*
+- src/
