@@ -4,10 +4,10 @@ engines:
   csslint:
     enabled: true
   duplication:
-  	enabled: true
+  	    enabled: true
     config:
-    	languages:
-    - javascript
+    	  languages:
+      - javascript
 ratings:
   paths:
   - app/**
