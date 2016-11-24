@@ -12,4 +12,4 @@ ratings:
   paths:
   - app/**/*
   - lib/**/*
-  - **.go
+  "- **.go"
