@@ -6,3 +6,6 @@ engines:
 ratings:
   paths:
  - src/**
+  - "**.go"
+    - "**.md"
+    - "**.sh"
