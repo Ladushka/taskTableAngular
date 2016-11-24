@@ -10,7 +10,7 @@ engines:
       - javascript
 ratings:
   paths:
-  - app/**
+  - src/**
   - lib/**
   - "**.rb"
   - "**.go"
