@@ -10,5 +10,7 @@ engines:
       - javascript
 ratings:
   paths:
-  - app/**/*
-  - lib/**/*
+  - src/**/*
+  - "**.js"
+exclude_paths:
+    - bower_components/
