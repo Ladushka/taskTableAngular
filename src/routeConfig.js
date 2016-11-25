@@ -23,7 +23,7 @@
                     templateUrl: 'src/projects/projects.html',
                     controller: 'projectsController'
                 });
-            $locationProvider.html5Mode(true);
+            //$locationProvider.html5Mode(true);
         });
 
 })();

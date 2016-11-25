@@ -29,7 +29,7 @@
                                 {name: 'lastName'},
                                 {
                                     name: 'company',
-                                    cellTemplate: '<div class="ui-grid-cell-contents"><a  href="/about/{{grid.appScope.companyId(row)}}">{{COL_FIELD}}</a></div>'
+                                    cellTemplate: '<div class="ui-grid-cell-contents"><a  href="#/about/{{grid.appScope.companyId(row)}}">{{COL_FIELD}}</a></div>'
                                 },
                                 {
                                     name: 'date',
