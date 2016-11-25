@@ -1,0 +1,31 @@
+{
+  "name": "angular-component-router",
+  "version": "0.2.0",
+  "dependencies": {
+    "angular": "1.5.0"
+  },
+  "description": "ngComponentRouter module for AngularJS 1.5",
+  "authors": [
+    "Rodney Lorrimar <rlorrimar@ccg.murdoch.edu.au>"
+  ],
+  "main": [
+    "./angular_1_router.js",
+    "./ng_route_shim.js"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "angularjs",
+    "router"
+  ],
+  "license": "MIT",
+  "homepage": "https://docs.angularjs.org/guide/component-router",
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.0",
+    "commit": "7fc192c7192ab0d4ba7b6abbe44caeea81292f89"
+  },
+  "_source": "https://github.com/rvl/bower-angular-component-router.git",
+  "_target": "0.2.0",
+  "_originalSource": "angular-component-router"
+}
