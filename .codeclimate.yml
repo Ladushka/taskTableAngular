@@ -16,3 +16,4 @@ ratings:
   - "**.js"
 exclude_paths:
     - bower_components/
+    - src/companies/companiesController.spec.js
