@@ -1,9 +1,0 @@
-profiles:
-  production:
-    base_url: http://Ladushka.github.io/taskTableAngular
-    deploy:
-      host: github_pages
-      # use gh-branch for repositories other than <username>.github.io
-      branch: master
-      # use master branch for <username>.github.io repository
-      #branch: master
