@@ -1,5 +1,3 @@
-// Karma configuration
-// Generated on Thu Dec 01 2016 15:49:20 GMT+0300 (Russia TZ 2 Standard Time)
 
 module.exports = function (config) {
     config.set({
@@ -15,18 +13,22 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            '../bower_components/jquery/dist/jquery.js',
-            '../bower_components/angular/angular.js',
-            '../bower_components/angular-route/angular-route.js',
-            '../bower_components/angular-mocks/angular-mocks.js',
-            '../src/app.js',
+            'bower_components/jquery/dist/jquery.js',
+            'bower_components/angular/angular.js',
+            'bower_components/angular-route/angular-route.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'bower_components/bootstrap/dist/js/bootstrap.js',
+            'bower_components/angular-bootstrap/ui-bootstrap.js',
+            'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+            'bower_components/angular-ui-grid/ui-grid.js',
+            'bower_components/angular-sanitize/angular-sanitize.js',
+            'bower_components/angular-translate/angular-translate.js',
+            'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+            'bower_components/angular-touch/angular-touch.js',
+            'bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
 
-
-            '../src/**/*.spec.js'
-            // 'Press tab to list possible options. Enter empty string to move to the next question.',
-            // 'Enter empty string to move to the next question.',
-            // 'You can use glob patterns, eg. "js/*.js" or "test/**/*Spec.js".',
-            // '[1mWhat is the location of your source and test files ?[22m'
+            'tests/**/*.js',
+            'src/**/*.js'
         ],
 
 
