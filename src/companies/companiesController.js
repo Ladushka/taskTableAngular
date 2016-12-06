@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.companies', [])
+    angular.module('app.companies', ['ui.bootstrap'])
         .controller('companiesController', function ($scope, $routeParams, $uibModal, companiesService) {
 
             $scope.currentPage = 1;
