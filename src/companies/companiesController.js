@@ -34,6 +34,7 @@
                     $scope.countries = (response.data).map(function (item) {
                         return item.name;
                     });
+
                 });
 
                 var modalInstance = $uibModal.open({
