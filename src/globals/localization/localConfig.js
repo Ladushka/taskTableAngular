@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.locate', [])
+    angular.module('app')
 
         .config(function ($translateProvider) {
             $translateProvider.useStaticFilesLoader({

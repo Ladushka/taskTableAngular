@@ -12,7 +12,7 @@
         'ngTouch',
         'pascalprecht.translate',
         'app.users',
-        'app.locate',
+        //'app.locate',
         'app.companies'
     ]);
 

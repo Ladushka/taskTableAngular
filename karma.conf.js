@@ -26,14 +26,16 @@ module.exports = function (config) {
             'bower_components/angular-touch/angular-touch.js',
             'bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
             'bower_components/angular-resource/angular-resource.js',
-
             'tests/**/*.js',
-            'src/**/*.js'
+            'src/**/**/*.js'
         ],
 
 
         // list of files to exclude
-        exclude: [],
+        exclude: [
+            'src/globals/localization/localConfig.js',
+            'src/globals/localization/localizationController.js'
+        ],
 
 
         // preprocess matching files before serving them to the browser
