@@ -5,6 +5,7 @@ describe("routes", function () {
         spyOn(companiesService, "getCompanies");
         $httpBackend.whenGET("src/companies/companiesList.html").respond("<div/>");
         $location.path("/about");
+        companiesService.getCompanies();
         $rootScope.$digest();
         expect($location.path()).toBe("/about");
         expect($route.current.templateUrl).toBe("src/companies/companiesList.html");

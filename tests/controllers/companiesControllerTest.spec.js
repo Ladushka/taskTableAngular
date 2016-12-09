@@ -16,7 +16,7 @@ describe("controllers", function () {
                 companiesService: companiesService
             });
             spyOn(companiesService, 'getCountries');
-            spyOn($scope, "$emit");
+            //spyOn($scope, "$emit");
             //$scope.$digest();
         }));
 
