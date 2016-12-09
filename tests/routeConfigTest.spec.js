@@ -31,5 +31,4 @@ describe("routes", function () {
         expect($route.current.controller).toBe('usersController');
     }));
 
-
 });

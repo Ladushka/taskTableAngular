@@ -4,7 +4,7 @@ describe("services", function () {
     describe("Companies Service", function () {
         var companiesService, $httpBackend;
 
-        beforeEach(inject(function (_companiesService_, _$httpBackend_,$rootScope) {
+        beforeEach(inject(function (_companiesService_, _$httpBackend_, $rootScope) {
             $scope = $rootScope.$new();
             companiesService = _companiesService_;
             $httpBackend = _$httpBackend_;
