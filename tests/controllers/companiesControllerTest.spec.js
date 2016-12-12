@@ -1,13 +1,19 @@
 describe("controllers", function () {
+    beforeEach(module('app'));
     beforeEach(module('app.companies'));
 
     describe('companiesController', function () {
-
         var ctrl, $scope;
+
+        beforeEach(function () {
+            module(function ($provide) {
+                //$provide.value("companiesService", { });
+            });
+        });
 
         beforeEach(inject(function ($rootScope, $uibModal, $controller, companiesService) {
             $scope = $rootScope.$new();
-            $scope.carousel = { next: function () { } };
+
             ctrl = $controller('companiesController', {
                 $scope: $scope,
                 $uibModal: $uibModal,
