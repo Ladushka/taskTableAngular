@@ -16,5 +16,5 @@ ratings:
   - "**.js"
 exclude_paths:
     - bower_components/
-    - src/**/*.spec.js
-    - tests/**/*.conf.js
+    - tests/**/*.spec.js
+    - src/**/*.conf.js
