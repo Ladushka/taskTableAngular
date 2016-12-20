@@ -5,5 +5,5 @@ script: node_modules/karma/bin/karma start karma.conf.js --single-run
 before_script:
   - npm install -g bower
   - bower install
-  - export CHROME_BIN=C:\Program Files (x86)\Google\Chrome\Application
+  - export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
 "os": "windows"
