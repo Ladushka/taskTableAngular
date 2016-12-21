@@ -2,8 +2,6 @@ language: node_js
 node_js:
 - "6.9.1"
 script: node_modules/karma/bin/karma start karma.conf.js --single-run
-before install:
- - export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
 before_script:
   - npm install -g bower
   - bower install
