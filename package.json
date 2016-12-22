@@ -26,6 +26,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
+    "gulp-filter": "^4.0.0",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-uglify": "^2.0.0",
     "jasmine-core": "^2.5.2",
@@ -33,6 +34,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.2",
+    "main-bower-files": "^2.13.1",
     "phantomjs": "^2.1.7"
   }
 }

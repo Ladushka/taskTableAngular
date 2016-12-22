@@ -9,7 +9,9 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     del = require('del'),
     connect = require('gulp-connect'),
-    browserSync  = require('browser-sync')
+    browserSync = require('browser-sync'),
+    gulpFilter = require('gulp-filter'),
+    mainBowerFiles = require('main-bower-files')
 
     ;
 
@@ -18,18 +20,43 @@ var config = {
         src: 'index.html',
         dst: 'dist/'
     },
+    html: {
+        src: 'src/**/**/*.html',
+        dst: 'dist/html'
+    },
     scripts: {
         src: ['src/**/**/*.js'],
         dst: 'dist/scripts'
     },
     styles: {
-        src: 'src/globals/styles/*css',
+        src: 'src/globals/styles/*.css',
         dst: 'dist/styles'
     }
 };
 
+gulp.task('bower', function () {
+    var jsFilter = gulpFilter('**/*.js');
+    var cssFilter = gulpFilter('**/*.css');
+    return gulp.src(mainBowerFiles({
+        includeDev: true
+    }), {base: 'bower_components'})
 
-gulp.task('browser-sync', function() {
+        .pipe(jsFilter)
+        .pipe(concat('bower.js'))
+        .pipe(gulp.dest(config.scripts.dst))
+        // .pipe(jsFilter.restore)
+
+        .pipe(cssFilter)
+        .pipe(concat('bower.css'))
+        .pipe(gulp.dest(config.styles.dst));
+});
+
+gulp.task('styles',function () {
+    return gulp.src(config.styles.src)
+        .pipe(concat('app.css'))
+        .pipe(gulp.dest(config.styles.dst));
+});
+gulp.task('browser-sync', function () {
     browserSync({
         server: {
             baseDir: ''
@@ -49,12 +76,25 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest(config.scripts.dst));
 });
 
-gulp.task('watch',['browser-sync', 'scripts'], function () {
 
+gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
 
-    // gulp.watch(config.index.src, ['index']);
+    gulp.watch('bower.json', ['bower']);
+    gulp.watch(config.html.src, browserSync.reload);
+    gulp.watch(config.index.src, browserSync.reload);
     gulp.watch(config.scripts.src, browserSync.reload);
-    // gulp.watch(config.styles.src, ['styles']);
+    gulp.watch(config.styles.src, browserSync.reload);
 });
 
-gulp.task('default', ['watch']);
+gulp.task( 'default', [ 'clean' ], function() {
+    gulp.start(
+        // 'index',
+        'bower',
+        'styles',
+        'scripts',
+        // 'images',
+        'watch'
+    );
+    // gulp.start( 'openBrowser' );
+} );
+// gulp.task('default', ['watch']);
