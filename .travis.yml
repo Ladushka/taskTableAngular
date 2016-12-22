@@ -1,10 +1,10 @@
 language: node_js
 node_js:
 - "6.9.1"
-
 before_script:
   - npm install -g gulp
   - npm install -g bower
   - bower install
+script: node_modules/karma/bin/karma start karma.conf.js --single-run
 sсript: gulp
 "os": "windows"
