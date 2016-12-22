@@ -92,8 +92,11 @@ gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
     gulp.watch(config.styles.src, browserSync.reload);
 });
 
-gulp.task( 'default', [ 'clean' ], function() {
+gulp.task( 'default', function() {
     gulp.start('test');
+} );
+
+gulp.task('build',['clean'],function () {
     gulp.start(
         // 'index',
         'bower',
@@ -102,5 +105,4 @@ gulp.task( 'default', [ 'clean' ], function() {
         // 'images',
         'watch'
     );
-
-} );
+});
