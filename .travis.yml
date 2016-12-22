@@ -6,6 +6,6 @@ before_script:
   - npm install -g bower
   - bower install
 script:
--node_modules/karma/bin/karma start karma.conf.js --single-run
--gulp
+  - node_modules/karma/bin/karma start karma.conf.js --single-run
+  - gulp
 "os": "windows"
