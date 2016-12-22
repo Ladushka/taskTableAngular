@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
     // jasmine = require('gulp-jasmine'),
-    // Server = require('karma').Server,
+    Server = require('karma').Server,
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     ngAnnotate = require('gulp-ng-annotate'),
@@ -76,6 +76,12 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest(config.scripts.dst));
 });
 
+gulp.task('test', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
 
 gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
 
@@ -87,6 +93,7 @@ gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
 });
 
 gulp.task( 'default', [ 'clean' ], function() {
+    gulp.start('test');
     gulp.start(
         // 'index',
         'bower',
@@ -95,6 +102,5 @@ gulp.task( 'default', [ 'clean' ], function() {
         // 'images',
         'watch'
     );
-    // gulp.start( 'openBrowser' );
+
 } );
-// gulp.task('default', ['watch']);
