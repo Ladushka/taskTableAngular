@@ -11,9 +11,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     browserSync = require('browser-sync'),
     gulpFilter = require('gulp-filter'),
-    mainBowerFiles = require('main-bower-files')
-
-    ;
+    mainBowerFiles = require('main-bower-files'),
+    eslint = require('gulp-eslint');
 
 var config = {
     index: {
@@ -51,7 +50,7 @@ gulp.task('bower', function () {
         .pipe(gulp.dest(config.styles.dst));
 });
 
-gulp.task('styles',function () {
+gulp.task('styles', function () {
     return gulp.src(config.styles.src)
         .pipe(concat('app.css'))
         .pipe(gulp.dest(config.styles.dst));
@@ -83,7 +82,7 @@ gulp.task('test', function (done) {
     }, done).start();
 });
 
-gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
+gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
 
     gulp.watch('bower.json', ['bower']);
     gulp.watch(config.html.src, browserSync.reload);
@@ -92,12 +91,35 @@ gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
     gulp.watch(config.styles.src, browserSync.reload);
 });
 
-gulp.task( 'default', function() {
-    gulp.start('test');
-    gulp.start('build');
-} );
 
-gulp.task('build',['clean'],function () {
+
+gulp.task('lint', function () {
+    return gulp.src(config.scripts.src)
+        .pipe(eslint({
+            rules : {
+                'indent': [
+                    2,
+                    4
+                ],
+                'quotes': [
+                    2,
+                    'single'
+                ],
+                'semi': [
+                    2,
+                    'always'
+                ]
+            },
+            globals: {
+                'angular': true
+            }
+        }))
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
+
+
+gulp.task('build', ['clean'], function () {
     gulp.start(
         // 'index',
         'bower',
@@ -106,4 +128,10 @@ gulp.task('build',['clean'],function () {
         // 'images',
         'watch'
     );
+});
+
+gulp.task('default', function () {
+    gulp.start('lint');
+    gulp.start('test');
+    gulp.start('build');
 });
