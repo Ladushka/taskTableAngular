@@ -6,7 +6,5 @@ before_script:
   - npm install -g gulp
   - npm install -g bower
   - bower install
-after_success:
-  - gulp
-  -gulp build
+svript: gulp
 "os": "windows"

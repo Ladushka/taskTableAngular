@@ -94,6 +94,7 @@ gulp.task('watch', ['browser-sync', 'scripts','styles'], function () {
 
 gulp.task( 'default', function() {
     gulp.start('test');
+    gulp.start('build');
 } );
 
 gulp.task('build',['clean'],function () {
