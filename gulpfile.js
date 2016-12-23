@@ -132,6 +132,6 @@ gulp.task('build', ['clean'], function () {
 
 gulp.task('default', function () {
     gulp.start('lint');
-    gulp.start('test');
+   // gulp.start('test');
     gulp.start('build');
 });
