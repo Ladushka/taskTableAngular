@@ -43,7 +43,6 @@ gulp.task('bower', function () {
         .pipe(jsFilter)
         .pipe(concat('bower.js'))
         .pipe(gulp.dest(config.scripts.dst))
-        // .pipe(jsFilter.restore)
 
         .pipe(cssFilter)
         .pipe(concat('bower.css'))
@@ -109,10 +108,10 @@ gulp.task('lint', function () {
                     2,
                     'always'
                 ]
-            },
+            }/*,
             globals: {
                 'angular': true
-            }
+            }*/
         }))
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
