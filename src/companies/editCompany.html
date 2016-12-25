@@ -5,7 +5,7 @@
     <form name="editForm" novalidate class="simple-form">
 
         <translate>COMPANY_NAME</translate>
-        : <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.company.name" required/><br/>
+        : <input name="company_name" type="text" class="form-control" ng-model="companyEdit.company.name" required/><br/>
 
         <translate>COUNTRY</translate>
         : <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.country" uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8" required/>
