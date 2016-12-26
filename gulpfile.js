@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     gulpFilter = require('gulp-filter'),
     mainBowerFiles = require('main-bower-files'),
-    eslint = require('gulp-eslint');
+    eslint = require('gulp-eslint'),
+    protractor = require("gulp-protractor").protractor;
 
 var config = {
     index: {
@@ -91,11 +92,10 @@ gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
 });
 
 
-
 gulp.task('lint', function () {
     return gulp.src(config.scripts.src)
         .pipe(eslint({
-            rules : {
+            rules: {
                 'indent': [
                     2,
                     4
@@ -109,14 +109,24 @@ gulp.task('lint', function () {
                     'always'
                 ]
             }/*,
-            globals: {
-                'angular': true
-            }*/
+             globals: {
+             'angular': true
+             }*/
         }))
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
 
+gulp.task('e2e', function (done) {
+    gulp.src(__dirname + '/e2e-tests/*.js')
+        .pipe(protractor({
+            configFile: '/for_myself/task/protractor.conf.js',
+            args: ['--baseUrl', 'http://127.0.0.1:8080']
+        }))
+        .on('error', function (e) {
+            throw e
+        });
+});
 
 gulp.task('build', ['clean'], function () {
     gulp.start(
@@ -131,6 +141,7 @@ gulp.task('build', ['clean'], function () {
 
 gulp.task('default', function () {
     gulp.start('lint');
-   // gulp.start('test');
+    // gulp.start('test');
     gulp.start('build');
+    gulp.start('e2e');
 });

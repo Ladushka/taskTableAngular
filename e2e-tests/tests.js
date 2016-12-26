@@ -44,6 +44,17 @@ describe('my app', function () {
             expect(userID.getText()).toBe('');
         });
 
+        it('should be open modal with user', function () {
+            var users = element.all(by.name('firstName'));
+
+            expect(users.get(0).getText()).toBe('Cox');
+
+            users.get(0).click();
+
+            var userFirstName = element(by.model('user.firstName'));
+            expect(userFirstName.getAttribute('value')).toBe(users.get(0).getText());
+        });
+
 
     });
 
