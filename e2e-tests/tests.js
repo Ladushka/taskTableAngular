@@ -38,14 +38,17 @@ describe('my app', function () {
 
         it('should be open modal add', function () {
             var buttons = element.all(by.css('button'));
-            buttons.get(1).click();
 
+            buttons.last().click();
+            var userID = element(by.model('user.id'));
+            expect(userID.getText()).toBe('');
         });
+
 
     });
 
     describe('Projects Page', function () {
-        var ptor;
+
         beforeEach(function () {
             browser.get("/#/about/4");
         });
@@ -66,13 +69,14 @@ describe('my app', function () {
             expect(element(by.exactBinding('company.address.country')).isPresent()).toBe(true);
 
             buttons.get(2).click();
-            var input = element(by.model('companyEdit.company.name'));
-            input.sendKeys('123');
-            expect(input.getAttribute('value')).toBe('InnovationGroup123');
+            var inputCompanyName = element(by.model('companyEdit.company.name'));
+            expect(inputCompanyName.getAttribute('value')).toBe(companyNameValid.getText());
+            inputCompanyName.sendKeys('123');
+            expect(inputCompanyName.getAttribute('value')).toBe('InnovationGroup123');
 
             expect(buttons.count()).toEqual(4);
             buttons.get(0).click();
-            expect(input.getAttribute('value')).toBe('InnovationGroup');
+            expect(inputCompanyName.getAttribute('value')).toBe('InnovationGroup');
 
         });
 
