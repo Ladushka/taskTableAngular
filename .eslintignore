@@ -1,3 +1,4 @@
 **/*{.,-}min.js
-tests/**/*.js
+tests/**/*.spec.js
 karma.conf.js
+e2e-tests/*.js
