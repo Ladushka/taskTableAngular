@@ -53,6 +53,10 @@ describe('my app', function () {
 
             var userFirstName = element(by.model('user.firstName'));
             expect(userFirstName.getAttribute('value')).toBe(users.get(0).getText());
+
+            var  buttons=element.all(by.css('button'));
+            buttons.first().click();
+            userFirstName.sendKeys('123');
         });
 
 
