@@ -118,9 +118,9 @@ gulp.task('lint', function () {
 });
 
 gulp.task('e2e', function (done) {
-    gulp.src(__dirname + '/e2e-tests/*.js')
+    gulp.src(__dirname + 'e2e-tests/*.js')
         .pipe(protractor({
-            configFile: '/for_myself/task/protractor.conf.js',
+            configFile: 'protractor.conf.js',
             args: ['--baseUrl', 'http://127.0.0.1:8080']
         }))
         .on('error', function (e) {
