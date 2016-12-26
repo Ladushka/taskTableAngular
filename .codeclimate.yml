@@ -18,3 +18,4 @@ exclude_paths:
     - bower_components/
     - tests/**/*.spec.js
     - src/**/*.conf.js
+    - e2e-tests/*.js
