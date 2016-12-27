@@ -1,6 +1,6 @@
 exports.config = {
 
-    seleniumAddress: 'http://localhost:4444/wd/hub',
+    seleniumAddress: 'http://localhost:4444',
 
     allScriptsTimeout: 11000,
 
@@ -9,19 +9,19 @@ exports.config = {
     ],
 
     capabilities: {
-        'browserName': 'chrome'//,
-        //'phantomjs.binary.path': require('phantomjs-prebuilt').path,
-        //'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
+        'browserName': 'phantomjs',
+        'phantomjs.binary.path': './node_modules/phantomjs/bin/phantomjs',
+        'phantomjs.cli.args': ['--logfile=PATH', '--loglevel=DEBUG']
     },
 
     baseUrl: 'http://localhost:8080/',
 
-    framework: 'jasmine',
-
-   // getPageTimeout: 15000,
+    framework: 'jasmine2',
 
     jasmineNodeOpts: {
-        defaultTimeoutInterval: 30000
+        showColors: true,
+        defaultTimeoutInterval: 30000,
+        isVerbose: true
     }
 
 };

@@ -2,9 +2,11 @@
 
 describe('my app', function () {
 
+    var webdriver = require('selenium-webdriver');
 
     describe('Start Page', function () {
         beforeEach(function () {
+            browser.manage().window().maximize();
             browser.get("");
         });
         it('should load the start page.', function () {
@@ -12,6 +14,7 @@ describe('my app', function () {
         });
 
         it('should be navigate to user page', function () {
+
             var navBar = element.all(by.className('navbar-brand'));
             navBar.first().click();
             expect(browser.getCurrentUrl()).toContain('/users');
@@ -28,12 +31,6 @@ describe('my app', function () {
     describe('Users Page', function () {
         beforeEach(function () {
             browser.get("/#/users");
-        });
-
-        it('should be navigate to companies list', function () {
-            var navBar = element.all(by.className('navbar-brand'));
-            navBar.get(1).click();
-            expect(browser.getCurrentUrl()).toContain('/about');
         });
 
         it('should be open modal add', function () {
@@ -54,7 +51,7 @@ describe('my app', function () {
             var userFirstName = element(by.model('user.firstName'));
             expect(userFirstName.getAttribute('value')).toBe(users.get(0).getText());
 
-            var  buttons=element.all(by.css('button'));
+            var buttons = element.all(by.css('button'));
             buttons.first().click();
             userFirstName.sendKeys('123');
         });
@@ -66,12 +63,6 @@ describe('my app', function () {
 
         beforeEach(function () {
             browser.get("/#/about/4");
-        });
-
-        it('should be navigate to companies list', function () {
-            var navBar = element.all(by.className('navbar-brand'));
-            navBar.get(1).click();
-            expect(browser.getCurrentUrl()).toContain('/about');
         });
 
         it('should be open modal add', function () {
