@@ -2,25 +2,22 @@
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
-
                 <h3>{{company.company.name}}</h3>
-                <p translate>ADDRESS</p>
                 <p>
-                    <translate>COUNTRY</translate>
-                    : {{company.address.country}}
+                    {{'ADDRESS' | translate}}
                 </p>
                 <p>
-                    <translate>CITY</translate>
-                    : {{company.address.city}}
+                    {{'COUNTRY' | translate}}: {{company.address.country}}
                 </p>
                 <p>
-                    <translate>STREET</translate>
-                    : {{company.address.street}}
+                    {{'CITY' | translate}}: {{company.address.city}}
+                </p>
+                <p>
+                    {{'STREET' | translate}}: {{company.address.street}}
                 </p>
             </div>
             <button type="button" class="btn btn-default" ng-click="openCompany()" translate>EDIT</button>
         </div>
     </div>
 </div>
-<!--<projects-component company-id="{{company.company.id}}"></projects-component>-->
 <projects-component class="component" company-id="company.company.id"></projects-component>

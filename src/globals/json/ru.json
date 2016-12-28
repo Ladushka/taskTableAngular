@@ -23,5 +23,9 @@
   "ADD": "Добавить",
   "COMPANY_NAME": "Имя компании",
   "CANCEL":"Отмена",
-  "ID":"Id"
+  "ID":"Id",
+  "REVIEWS": "Отзывы",
+  "PROJECTS":"Проекты",
+  "RATING": "рейтинг",
+  "MESSAGE":"сообщение"
 }

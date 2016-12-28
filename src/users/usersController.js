@@ -12,7 +12,7 @@
                     $scope.gridApi.pagination.seek($scope.currentPage);
                 };
 
-                $scope.gridOptions = usersService.gridOptions().gridOptions;
+                $scope.gridOptions = usersService.gridOptions();
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
@@ -95,7 +95,7 @@
                     $scope.copyUser = angular.copy(row.entity);
 
                     companiesService.getCountries().then(function (response) {
-                        $scope.countries=(response.data).map(function (item) {
+                        $scope.countries = (response.data).map(function (item) {
                             return item.name;
                         });
                     });

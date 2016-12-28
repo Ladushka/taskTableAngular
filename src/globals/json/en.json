@@ -23,5 +23,9 @@
   "ADD": "Add",
   "COMPANY_NAME": "Company Name",
   "CANCEL":"Cancel",
-  "ID":"Id"
+  "ID":"Id",
+  "REVIEWS": "Reviews",
+  "PROJECTS":"Projects",
+  "RATING": "rating",
+  "MESSAGE":"message"
 }

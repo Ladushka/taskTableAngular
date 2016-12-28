@@ -1,25 +1,25 @@
-<div>
+<section>
     <section class="tab">
         <ul class="nav nav-pills">
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="thumbnail">
                         <uib-tabset active="activeProjects" justified="true">
-                            <uib-tab index="0" heading="Projects">
+                            <uib-tab index="0" heading="{{'PROJECTS' | translate}}">
                                 <ul>
                                     <li ng-repeat="proj in project.projects">{{proj}}</li>
                                 </ul>
                             </uib-tab>
-                            <uib-tab index="1" heading="Reviews">
+                            <uib-tab index="1" heading="{{'REVIEWS' | translate}}">
                                 <br>
                                 <dl class="dl-horizontal" ng-repeat="review in project.reviews">
-                                    <dt>e-mail</dt>
+                                    <dt translate>e-mail</dt>
                                     <dd>{{review.email}}</dd>
-                                    <dt>rating</dt>
+                                    <dt translate>RATING</dt>
                                     <dd>
                                         <progress value="{{review.star}}" max="10"></progress>
                                     </dd>
-                                    <dt>message</dt>
+                                    <dt translate>MESSAGE</dt>
                                     <dd>{{review.message}}</dd>
                                 </dl>
                                 <br>
@@ -30,4 +30,4 @@
             </div>
         </ul>
     </section>
-</div>
+</section>

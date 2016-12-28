@@ -11,7 +11,7 @@
                 $scope.gridApi.pagination.seek($scope.currentPage);
             };
 
-            $scope.gridOptions = companiesService.gridOptions().gridOptions;
+            $scope.gridOptions = companiesService.gridOptions();
 
 
             $scope.gridOptions.onRegisterApi = function (gridApi) {
