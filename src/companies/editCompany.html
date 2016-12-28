@@ -1,20 +1,29 @@
 <div class="modal-header">
+    {{'EDIT' | translate}} {{companyEdit.company.name}}
 </div>
 <div class="modal-body" id="modal-body">
     <!--Form-->
     <form name="editForm" novalidate class="simple-form">
 
-        <translate>COMPANY_NAME</translate>
-        : <input name="company_name" type="text" class="form-control" ng-model="companyEdit.company.name" required/><br/>
-
-        <translate>COUNTRY</translate>
-        : <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.country" uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8" required/>
-
-        <translate>CITY</translate>
-        : <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.city" required/><br/>
-
-        <translate>STREET</translate>
-        : <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.street" required/><br/>
+        <div class="form-group">
+            <label>{{'COMPANY_NAME' | translate}}:</label>
+            <input name="company_name" type="text" class="form-control" ng-model="companyEdit.company.name" required/>
+        </div>
+        <div class="form-group">
+            <label>{{'COUNTRY' | translate}}:</label>
+            <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.country"
+                   uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8" required/>
+        </div>
+        <div class="form-group">
+            <label>{{'CITY' | translate}}:</label>
+            <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.city"
+                   required/>
+        </div>
+        <div class="form-group">
+            <label>{{'STREET' | translate}}:</label>
+            <input name="editCompany" type="text" class="form-control" ng-model="companyEdit.address.street"
+                   required/>
+        </div>
     </form>
 </div>
 <div class="modal-footer">

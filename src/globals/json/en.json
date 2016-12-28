@@ -22,5 +22,6 @@
   "PASSPORT": "Passport",
   "ADD": "Add",
   "COMPANY_NAME": "Company Name",
-  "CANCEL":"Cancel"
+  "CANCEL":"Cancel",
+  "ID":"Id"
 }

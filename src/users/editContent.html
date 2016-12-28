@@ -6,36 +6,43 @@
     <!--Form-->
     <form name="editForm" novalidate class="simple-form">
         <!--Id-->
-
-        Id: <input name="form" type="number" class="form-control" ng-model="user.id" readonly="readonly"/><br/>
-        <!--Name-->
-        <translate>FIRST_NAME</translate>
-        : <input name="form" type="text" class="form-control" ng-model="user.firstName" required/>
-        <!--Surname-->
-        <translate>LAST_NAME</translate>
-        : <input name="form" type="text" class="form-control" ng-model="user.lastName" required/><br/>
-        <!--Data-->
-        <translate>DATE</translate>
-        :
-        <div class="input-group">
-            <input name="form" type="text" class="form-control"
-                   uib-datepicker-popup
-                   ng-model="user.date"
-                   required
-                   is-open="popup.opened"
-                   datepicker-options="dateOptions"/><br/>
-            <span class="input-group-btn">
+        <div class="form-group">
+            <label>{{'ID' | translate}}:</label>
+            <input name="form" type="number" class="form-control" ng-model="user.id"
+                   readonly="readonly"/>
+        </div>
+        <div class="form-group">
+            <label>{{'FIRST_NAME' | translate}}:</label>
+            <input name="form" type="text" class="form-control" ng-model="user.firstName"
+                   required/>
+        </div>
+        <div class="form-group">
+            <label>{{'LAST_NAME' | translate}}:</label>
+            <input name="form" type="text" class="form-control" ng-model="user.lastName"
+                   required/>
+        </div>
+        <div class="form-group">
+            <label>{{'DATE' | translate}}:</label>
+            <div class="input-group">
+                <input name="form" type="text" class="form-control"
+                       uib-datepicker-popup
+                       ng-model="user.date"
+                       required
+                       is-open="popup.opened"
+                       datepicker-options="dateOptions"/>
+                <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="openDate()"><i
                                         class="glyphicon glyphicon-calendar"></i></button>
                             </span>
+            </div>
         </div>
-
-        <!--Company-->
-        <div class='container-fluid uib-typeahead-demo' ng-controller="usersController" required>
-            <translate>COMPANY</translate>
-            :<input name="form" type="text" ng-model="user.company"
-                    uib-typeahead="company.name for company in companies | filter:$viewValue"
-                    class="form-control"><br/>
+        <div class="form-group">
+            <div class='uib-typeahead-demo' ng-controller="usersController" required>
+                <label>{{'COMPANY' | translate}}:</label>
+                <input name="form" type="text" ng-model="user.company"
+                       uib-typeahead="company.name for company in companies | filter:$viewValue"
+                       class="form-control">
+            </div>
         </div>
 
     </form>
