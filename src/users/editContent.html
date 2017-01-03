@@ -1,3 +1,4 @@
+<div ng-controller="userModalController">
 <div class="modal-header">
     <translate>EDIT</translate>
     {{user.lastName}}
@@ -21,6 +22,19 @@
             <input name="form" type="text" class="form-control" ng-model="user.lastName"
                    required/>
         </div>
+        <!--
+        {{'PASSPORT' | translate}}: <input type="text" class="form-control" ng-model="user.passport" required/><br/>
+
+            {{'COUNTRY' | translate}}: <input type="text"
+                     class="form-control"
+                     ng-model="user.address.country"
+                     uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8"
+                     required/><br/>
+
+            {{'CITY' | translate}}: <input type="text" class="form-control" ng-model="user.address.city" required/><br/>
+
+            {{'STREET' | translate}}: <input type="text" class="form-control" ng-model="user.address.street" required/><br/>
+        -->
         <div class="form-group">
             <label>{{'DATE' | translate}}:</label>
             <div class="input-group">
@@ -48,10 +62,10 @@
     </form>
 </div>
 <div class="modal-footer">
-    <input type="submit" class="btn btn-primary" ng-click="$close(user)" value="Submit"
+    <input type="submit" class="btn btn-primary" ng-click="$close(user)" value="{{'SUBMIT' | translate}}"
            ng-disabled="editForm.$invalid"/>
     <button type="button" class="btn btn-default" ng-click="cancelEditContent()" translate>CANCEL</button>
 </div>
-
+</div>
 
 

@@ -11,7 +11,7 @@
                 var ctrl = this;
 
                 projectsService.getProjects().then(function (response) {
-                    $scope.project = (response.data).filter(function (item) {
+                    $scope.project = (response.data || []).filter(function (item) {
                         return item.id == ctrl.companyId;
                     })[0];
                 });

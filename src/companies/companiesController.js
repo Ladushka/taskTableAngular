@@ -21,7 +21,7 @@
             companiesService.getCompanies().then(function (response) {
                 $scope.gridOptions.data = response.data;
 
-                $scope.company = (response.data).filter(function (item) {
+                $scope.company = (response.data || []).filter(function (item) {
                     return item.company.id == $routeParams.companyID;
                 })[0];
                 $scope.totalItems = response.data.length;
@@ -31,7 +31,7 @@
 
                 $scope.companyEdit = angular.copy($scope.company);
                 companiesService.getCountries().then(function (response) {
-                    $scope.countries = (response.data).map(function (item) {
+                    $scope.countries = (response.data || []).map(function (item) {
                         return item.name;
                     });
 
@@ -63,7 +63,8 @@
                 if ($scope.company) {
                     $scope.companyEdit = angular.copy($scope.company);
                 } else {
-                    (document.forms[0].elements.editCompany).forEach(function (item) {
+                    console.log(document.forms.editForm.elements);
+                    (document.forms.editForm.elements[0] || []).forEach(function (item) {
                         item.value = '';
                     });
                     delete $scope.company;

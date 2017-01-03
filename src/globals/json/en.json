@@ -22,10 +22,11 @@
   "PASSPORT": "Passport",
   "ADD": "Add",
   "COMPANY_NAME": "Company Name",
-  "CANCEL":"Cancel",
-  "ID":"Id",
+  "CANCEL": "Cancel",
+  "ID": "Id",
   "REVIEWS": "Reviews",
-  "PROJECTS":"Projects",
+  "PROJECTS": "Projects",
   "RATING": "rating",
-  "MESSAGE":"message"
+  "MESSAGE": "message",
+  "SUBMIT": "Submit"
 }
