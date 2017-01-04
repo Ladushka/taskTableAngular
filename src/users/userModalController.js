@@ -25,7 +25,6 @@
             };
 
             $scope.save = function (user) {
-
                 if (!user.id) {
                     user.id = $scope.gridOptions.data.length + 1;
                     $scope.gridOptions.data.push(user);
@@ -54,6 +53,16 @@
                 datepickerService.openDatepicker($scope.popup);
             };
 
+            $scope.cancelEditContent = function () {
+                if ($scope.gridApi.selection.getSelectedRows().length === 1) {
+                    $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
+                } else {
+                    (document.forms.elements.editForm || []).forEach(function (item) {
+                        item.value = '';
+                    });
+                    delete $scope.user;
+                }
+            };
 
         });
 

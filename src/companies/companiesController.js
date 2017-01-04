@@ -22,7 +22,7 @@
                 $scope.gridOptions.data = response.data;
 
                 $scope.company = (response.data || []).filter(function (item) {
-                    return item.company.id == $routeParams.companyID;
+                    return item.company.name == $routeParams.companyID;
                 })[0];
                 $scope.totalItems = response.data.length;
             });
@@ -63,10 +63,9 @@
                 if ($scope.company) {
                     $scope.companyEdit = angular.copy($scope.company);
                 } else {
-                    console.log(document.forms.editForm.elements);
-                    (document.forms.editForm.elements[0] || []).forEach(function (item) {
-                        item.value = '';
-                    });
+                    for (var i = 0; i < document.forms.editForm.elements.length; i++) {
+                        document.forms.editForm.elements[i].value = '';
+                    }
                     delete $scope.company;
                 }
 

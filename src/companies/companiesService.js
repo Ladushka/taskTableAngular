@@ -22,7 +22,7 @@
                         columnDefs: [
                             {
                                 name: 'company',
-                                cellTemplate: '<div class="ui-grid-cell-contents"><a href="#/about/{{COL_FIELD.id}}">{{COL_FIELD.name}}</a></div>'
+                                cellTemplate: '<div class="ui-grid-cell-contents"><a href="#/about/{{COL_FIELD.name}}">{{COL_FIELD.name}}</a></div>'
                             },
                             {
                                 name: 'address',
