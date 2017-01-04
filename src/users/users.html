@@ -5,6 +5,7 @@
     <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
         ng-change="pageChanged()"></ul>
     <div ng-controller="userModalController">
-        <button type="button" class="btn btn-default" ng-click="getRow()" translate>EDIT</button>
-        <button type="button" id="addData" class="btn btn-success" ng-click="open()" translate>ADD</button>
+        <button name="edit"  type="button" class="btn btn-default" ng-click="getRow()" translate>EDIT</button>
+        <button name="add" type="button" id="addData" class="btn btn-success" ng-click="open()" translate>ADD</button>
+        <button name="remove" type="button" class="btn btn-success" ng-click="remove()" translate>REMOVE</button>
     </div>

@@ -2,16 +2,22 @@
     'use strict';
 
     angular.module('app')
-        .controller('userModalController', function ($scope, $uibModal, companiesService,datepickerService) {
+        .controller('userModalController', function ($scope, $uibModal, companiesService, datepickerService) {
 
             companiesService.getCompanies().then(function (response) {
                 $scope.companies = (response.data || []).map(function (item) {
                     return item.company;
                 });
-                $scope.companyCount = $scope.companies.length;
+            });
+
+            companiesService.getCountries().then(function (response) {
+                $scope.countries = (response.data || []).map(function (item) {
+                    return item.name;
+                });
             });
 
             $scope.open = function () {
+                delete $scope.user;
                 var modalInstance = $uibModal.open({
                     animation: $scope.animationsEnabled,
                     templateUrl: 'src/users/editContent.html',
@@ -41,8 +47,9 @@
 
             $scope.getRow = function () {
                 if ($scope.gridApi.selection.getSelectedRows().length === 1) {
-                    $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
                     $scope.open();
+                    $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
+
                 } else {
                     alert('Выделите ячейку');
                 }
@@ -57,12 +64,14 @@
                 if ($scope.gridApi.selection.getSelectedRows().length === 1) {
                     $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
                 } else {
-                    (document.forms.elements.editForm || []).forEach(function (item) {
-                        item.value = '';
-                    });
+                    for (var i = 0; i < document.forms.editForm.elements.length; i++) {
+                        document.forms.editForm.elements[i].value = '';
+                    }
                     delete $scope.user;
                 }
             };
+
+
 
         });
 

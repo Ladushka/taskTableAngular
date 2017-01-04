@@ -28,5 +28,6 @@
   "PROJECTS": "Projects",
   "RATING": "rating",
   "MESSAGE": "message",
-  "SUBMIT": "Submit"
+  "SUBMIT": "Submit",
+  "REMOVE": "Remove"
 }

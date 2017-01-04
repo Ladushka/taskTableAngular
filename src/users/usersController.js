@@ -31,5 +31,13 @@
                     return row.entity.company;
                 };
 
+                $scope.remove = function () {
+                    $scope.gridApi.selection.getSelectedCount()
+                    // for (var i = 0; i < $scope.$scope.gridApi.grid.rows.length; i++) {
+                    //     //  if($scope.$scope.gridApi.grid.rows[i].entity.id===)
+                    // }
+                    $scope.gridOptions.data.splice(3,1);
+                };
+
             }]);
 })();
