@@ -17,7 +17,7 @@
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
-                    $scope.tests = [1,2,3,4,5,6,7,8,9,10,12];
+                    $scope.tests = usersService.getOptions(response.data.length);
                     ($scope.gridOptions.data || []).forEach(function (item) {
                         item.date = new Date(item.date);
                     });

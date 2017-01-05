@@ -8,6 +8,13 @@
                 getPeople: function () {
                     return $http.get('src/globals/json/users.json');
                 },
+                getOptions: function (num) {
+                    var items = [];
+                    for (var i = 0; i < num; i++) {
+                        items.push(i + 1);
+                    }
+                    return items;
+                },
                 gridOptions: function () {
                     return {
                         enableFiltering: true,
