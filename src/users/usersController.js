@@ -8,6 +8,7 @@
 
                 $scope.currentPage = 1;
                 $scope.itemsPerPage = 5;
+                //$scope.gridOptions.paginationPageSize=6;
                 $scope.pageChanged = function () {
                     $scope.gridApi.pagination.seek($scope.currentPage);
                 };
@@ -16,6 +17,7 @@
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
+                    $scope.tests = [1,2,3,4,5,6,7,8,9,10,12];
                     ($scope.gridOptions.data || []).forEach(function (item) {
                         item.date = new Date(item.date);
                     });
@@ -32,11 +34,15 @@
                 };
 
                 $scope.remove = function () {
-                    $scope.gridApi.selection.getSelectedCount()
-                    // for (var i = 0; i < $scope.$scope.gridApi.grid.rows.length; i++) {
-                    //     //  if($scope.$scope.gridApi.grid.rows[i].entity.id===)
-                    // }
-                    $scope.gridOptions.data.splice(3,1);
+
+                    $scope.gridApi.selection.getSelectedCount();
+                    for (var j = 0; j < $scope.gridApi.selection.getSelectedCount(); j++) {
+                        for (var i = 0; i < $scope.gridApi.grid.rows.length; i++) {
+                            if ($scope.gridApi.grid.rows[i].entity.id === $scope.gridApi.selection.getSelectedGridRows()[j].entity.id) {
+                                $scope.gridOptions.data.splice(i - j, 1);
+                            }
+                        }
+                    }
                 };
 
             }]);

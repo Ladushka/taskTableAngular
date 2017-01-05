@@ -29,5 +29,6 @@
   "RATING": "rating",
   "MESSAGE": "message",
   "SUBMIT": "Submit",
-  "REMOVE": "Remove"
+  "REMOVE": "Remove",
+  "ITEMS PER PAGE": "items per page"
 }

@@ -20,3 +20,8 @@
 .curs {
     cursor: pointer;
 }
+
+.items{
+    margin-left: 3%;
+    width: 10%;
+}

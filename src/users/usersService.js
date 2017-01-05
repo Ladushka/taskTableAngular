@@ -16,7 +16,7 @@
                         enableRowSelection: true,
                         selectionRowHeaderWidth: 35,
                         rowHeight: 35,
-                        paginationPageSize: 5,
+                        paginationPageSize: 6,
                         enableHorizontalScrollbar: 0,
                         enableVerticalScrollbar: 2,
                         columnDefs: [
