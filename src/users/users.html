@@ -1,19 +1,17 @@
 <section>
     <div ui-grid="gridOptions" ui-grid-pagination ui-grid-selection ui-grid-exporter
          class="grid"></div>
-    <div >
-        <div class="input-group items">
-            <label>{{'ITEMS PER PAGE' | translate}}:</label>
-            <select class="form-control" ng-model="gridOptions.paginationPageSize" ng-options="test for test in tests"></select>
-        </div>
+
+<div class="row">
+    <div class="col-md-1 buttons">
+            <span>{{'ITEMS PER PAGE' | translate}}:</span><select class="form-control" ng-model="gridOptions.paginationPageSize" ng-options="test for test in tests"></select>
     </div>
-</section>
-<ul uib-pagination total-items="gridOptions.paginationPageSize" ng-model="currentPage" items-per-page="itemsPerPage"
+<ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="gridOptions.paginationPageSize"
     ng-change="pageChanged()"></ul>
-<div ng-controller="userModalController" >
+</div>
+<div ng-controller="userModalController" class="buttons">
     <button name="edit" type="button" class="btn btn-default" ng-click="getRow()" translate>EDIT</button>
     <button name="add" type="button" id="addData" class="btn btn-success" ng-click="open()" translate>ADD</button>
     <button name="remove" type="button" class="btn btn-success" ng-click="remove()" translate>REMOVE</button>
-
 </div>
-
+</section>
