@@ -29,6 +29,9 @@
 
             $scope.openCompany = function () {
 
+                for (var i = 0; i < document.getElementsByName('editCompany').length; i++) {
+                    document.getElementsByName('editCompany')[i].disabled = false;
+                }
                 $scope.companyEdit = angular.copy($scope.company);
                 companiesService.getCountries().then(function (response) {
                     $scope.countries = (response.data || []).map(function (item) {
@@ -37,38 +40,19 @@
 
                 });
 
-                var modalInstance = $uibModal.open({
-                    animation: $scope.animationsEnabled,
-                    templateUrl: 'src/companies/editCompany.html',
-                    size: 'lg',
-                    scope: $scope
-                });
-                modalInstance.result.then(function (company) {
-                    $scope.save(company);
-                });
             };
 
-            $scope.save = function (company) {
-                if (!company.company.id) {
-                    company.company.id = $scope.gridOptions.data.length + 1;
-                    $scope.gridOptions.data.push(company);
-                } else {
-                    $scope.company = $scope.companyEdit;
+            $scope.saveEdit = function () {
+                for (var i = 0; i < document.getElementsByName('editCompany').length; i++) {
+                    document.getElementsByName('editCompany')[i].disabled = true;
                 }
-                delete $scope.companyEdit;
             };
 
             $scope.cancelCompany = function () {
-
-                if ($scope.company) {
-                    $scope.companyEdit = angular.copy($scope.company);
-                } else {
-                    for (var i = 0; i < document.forms.editForm.elements.length; i++) {
-                        document.forms.editForm.elements[i].value = '';
-                    }
-                    delete $scope.company;
+                $scope.company = $scope.companyEdit;
+                for (var i = 0; i < document.getElementsByName('editCompany').length; i++) {
+                    document.getElementsByName('editCompany')[i].disabled = true;
                 }
-
             };
 
         });

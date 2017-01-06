@@ -2,21 +2,34 @@
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
-                <h3>{{company.company.name}}</h3>
+                <h3><input name="editCompany" type="text" class="form-control" ng-model="company.company.name"
+                           disabled/></h3>
                 <p>
                     {{'ADDRESS' | translate}}
                 </p>
+                <div class="form-group" name="companyInf">
                 <p>
-                    {{'COUNTRY' | translate}}: {{company.address.country}}
+                    <label>{{'COUNTRY' | translate}}:</label>
+
+                        <input name="editCompany" type="text" class="form-control" ng-model="company.address.country"
+                               uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8"
+                               disabled/>
                 </p>
                 <p>
-                    {{'CITY' | translate}}: {{company.address.city}}
+                    <label>{{'CITY' | translate}}:</label>
+                    <input name="editCompany" type="text" class="form-control" ng-model="company.address.city"
+                           disabled/>
                 </p>
                 <p>
-                    {{'STREET' | translate}}: {{company.address.street}}
+                    <label>{{'STREET' | translate}}:</label>
+                    <input name="editCompany" type="text" class="form-control" ng-model="company.address.street"
+                           disabled/>
                 </p>
+                </div>
             </div>
             <button type="button" class="btn btn-default" ng-click="openCompany()" translate>EDIT</button>
+            <button type="button" class="btn btn-default" ng-click="saveEdit(company)" translate>SAVE</button>
+            <button type="button" class="btn btn-default" ng-click="cancelCompany()" translate>CANCEL</button>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
 
                 $scope.currentPage = 1;
                 $scope.itemsPerPage = 5;
-                //$scope.gridOptions.paginationPageSize=6;
+
                 $scope.pageChanged = function () {
                     $scope.gridApi.pagination.seek($scope.currentPage);
                 };
