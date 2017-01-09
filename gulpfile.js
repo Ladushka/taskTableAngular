@@ -140,7 +140,7 @@ gulp.task('build', ['clean'], function () {
 
 gulp.task('default', function () {
 
-    gulp.start('test');
+    //gulp.start('test');
     gulp.start('build');
-    // gulp.start('e2e');
+    //gulp.start('e2e');
 });
