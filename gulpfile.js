@@ -89,6 +89,7 @@ gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
     gulp.watch(config.index.src, browserSync.reload);
     gulp.watch(config.scripts.src, browserSync.reload);
     gulp.watch(config.styles.src, browserSync.reload);
+    gulp.start('lint');
 });
 
 
@@ -133,15 +134,13 @@ gulp.task('build', ['clean'], function () {
         // 'index',
         'bower',
         'styles',
-        'scripts',
-        // 'images',
-        'watch'
+        'scripts'
     );
 });
 
 gulp.task('default', function () {
-    gulp.start('lint');
-    // gulp.start('test');
+
+    gulp.start('test');
     gulp.start('build');
-    gulp.start('e2e');
+    // gulp.start('e2e');
 });

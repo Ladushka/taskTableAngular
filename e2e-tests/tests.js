@@ -34,27 +34,13 @@ describe('my app', function () {
         });
 
         it('should be open modal add', function () {
-            var buttons = element.all(by.css('button'));
+            var buttons = element(by.name('add'));
 
-            buttons.last().click();
+            buttons.click();
             var userID = element(by.model('user.id'));
             expect(userID.getText()).toBe('');
         });
 
-        it('should be open modal with user', function () {
-            var users = element.all(by.name('firstName'));
-
-            expect(users.get(0).getText()).toBe('Cox');
-
-            users.get(0).click();
-
-            var userFirstName = element(by.model('user.firstName'));
-            expect(userFirstName.getAttribute('value')).toBe(users.get(0).getText());
-
-            var buttons = element.all(by.css('button'));
-            buttons.first().click();
-            userFirstName.sendKeys('123');
-        });
 
 
     });
@@ -62,28 +48,33 @@ describe('my app', function () {
     describe('Projects Page', function () {
 
         beforeEach(function () {
-            browser.get("/#/about/4");
+            browser.get("/#/about/InnovationGroup");
         });
 
-        it('should be open modal add', function () {
+        it('should be open input for edit', function () {
+            var buttonEdit = element(by.name('edit'));
+            var buttonSave = element(by.name('save'));
+            var buttonCancel = element(by.name('cancel'));
 
-            var buttons = element.all(by.css('button'));
-            expect(buttons.count()).toEqual(3);
+            expect(buttonSave.getAttribute('disabled')).toBeTruthy();
+            expect(buttonCancel.getAttribute('disabled')).toBeTruthy();
 
-            var companyNameValid = element(by.binding('company.company.name'));
-            expect(companyNameValid.getText()).toContain('InnovationGroup');
-            expect(element(by.exactBinding('company.address.country')).isPresent()).toBe(true);
+            buttonEdit.click();
 
-            buttons.get(2).click();
-            var inputCompanyName = element(by.model('companyEdit.company.name'));
-            expect(inputCompanyName.getAttribute('value')).toBe(companyNameValid.getText());
-            inputCompanyName.sendKeys('123');
-            expect(inputCompanyName.getAttribute('value')).toBe('InnovationGroup123');
+            var companyName = element(by.model('company.company.name'));
+            expect(companyName.getAttribute('value')).toContain('InnovationGroup');
 
-            expect(buttons.count()).toEqual(4);
-            buttons.get(0).click();
-            expect(inputCompanyName.getAttribute('value')).toBe('InnovationGroup');
+            expect(buttonSave.getAttribute('disabled')).toBeFalsy();
+            expect(buttonCancel.getAttribute('disabled')).toBeFalsy();
+            expect(buttonEdit.getAttribute('disabled')).toBeTruthy();
 
+            companyName.sendKeys('123');
+            expect(companyName.getAttribute('value')).toBe('InnovationGroup123');
+            buttonCancel.click();
+            expect(companyName.getAttribute('value')).toBe('InnovationGroup');
+            expect(buttonSave.getAttribute('disabled')).toBeTruthy();
+            expect(buttonCancel.getAttribute('disabled')).toBeTruthy();
+            expect(buttonEdit.getAttribute('disabled')).toBeFalsy();
         });
 
     });

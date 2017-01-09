@@ -28,7 +28,9 @@
             });
 
             $scope.openCompany = function () {
-
+                document.getElementsByName('save')[0].disabled = false;
+                document.getElementsByName('cancel')[0].disabled = false;
+                document.getElementsByName('edit')[0].disabled = true;
                 for (var i = 0; i < document.getElementsByName('editCompany').length; i++) {
                     document.getElementsByName('editCompany')[i].disabled = false;
                 }
@@ -46,9 +48,15 @@
                 for (var i = 0; i < document.getElementsByName('editCompany').length; i++) {
                     document.getElementsByName('editCompany')[i].disabled = true;
                 }
+                document.getElementsByName('cancel')[0].disabled = true;
+                document.getElementsByName('edit')[0].disabled = false;
+                document.getElementsByName('save')[0].disabled = true;
             };
 
             $scope.cancelCompany = function () {
+                document.getElementsByName('cancel')[0].disabled = true;
+                document.getElementsByName('edit')[0].disabled = false;
+                document.getElementsByName('save')[0].disabled = true;
                 $scope.company = $scope.companyEdit;
                 for (var i = 0; i < document.getElementsByName('editCompany').length; i++) {
                     document.getElementsByName('editCompany')[i].disabled = true;
