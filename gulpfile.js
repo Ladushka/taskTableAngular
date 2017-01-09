@@ -13,7 +13,9 @@ var gulp = require('gulp'),
     gulpFilter = require('gulp-filter'),
     mainBowerFiles = require('main-bower-files'),
     eslint = require('gulp-eslint'),
-    protractor = require("gulp-protractor").protractor;
+    protractor = require("gulp-protractor").protractor,
+    webdriver_standalone = require("gulp-protractor").webdriver_standalone,
+    webdriver_update = require("gulp-protractor").webdriver_update;
 
 var config = {
     index: {
@@ -75,13 +77,6 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest(config.scripts.dst));
 });
 
-gulp.task('test', function (done) {
-    new Server({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, done).start();
-});
-
 gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
 
     gulp.watch('bower.json', ['bower']);
@@ -91,7 +86,6 @@ gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
     gulp.watch(config.styles.src, browserSync.reload);
     gulp.start('lint');
 });
-
 
 gulp.task('lint', function () {
     return gulp.src(config.scripts.src)
@@ -109,25 +103,39 @@ gulp.task('lint', function () {
                     2,
                     'always'
                 ]
-            }/*,
-             globals: {
-             'angular': true
-             }*/
+            }
         }))
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('e2e', function (done) {
-    gulp.src(__dirname + 'e2e-tests/*.js')
+// gulp.task('e2e', function (done) {
+//     gulp.src(__dirname + 'e2e-tests/*.js')
+//         .pipe(protractor({
+//             configFile: 'protractor.conf.js',
+//             args: ['--baseUrl', 'http://127.0.0.1:8080']
+//         }))
+//         .on('error', function (e) {
+//             throw e
+//         });
+// });
+gulp.task('webdriver_standalone', webdriver_standalone);
+gulp.task('webdriver_update', webdriver_update);
+
+gulp.task('e2e',['webdriver_update'], function (cb) {
+    gulp.src(['e2e-tests/*.js'])
         .pipe(protractor({
             configFile: 'protractor.conf.js',
-            args: ['--baseUrl', 'http://127.0.0.1:8080']
+            args: ['--baseUrl', 'http://127.0.0.1:8000']
         }))
         .on('error', function (e) {
             throw e
-        });
+        })
+        .on('end', cb);
 });
+
+
+
 
 gulp.task('build', ['clean'], function () {
     gulp.start(
@@ -140,7 +148,6 @@ gulp.task('build', ['clean'], function () {
 
 gulp.task('default', function () {
 
-    //gulp.start('test');
     gulp.start('build');
-    //gulp.start('e2e');
+    gulp.start('e2e');
 });

@@ -39,6 +39,7 @@
     "main-bower-files": "^2.13.1",
     "phantomjs": "^2.1.7",
     "protractor": "^4.0.14",
-    "selenium-webdriver": "^3.0.1"
+    "selenium-webdriver": "^3.0.1",
+    "webdriver-manager": "^11.1.1"
   }
 }
