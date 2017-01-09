@@ -8,7 +8,7 @@ before_script:
   - hs &
   - phantomjs --webdriver=4444 &
 script:
-  - node_modules/karma/bin/karma start karma.conf.js --single-run
+  - npm test
   - gulp
 "os": "windows"
 branches:
