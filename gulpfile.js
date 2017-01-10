@@ -109,16 +109,6 @@ gulp.task('lint', function () {
         .pipe(eslint.failAfterError());
 });
 
-// gulp.task('e2e', function (done) {
-//     gulp.src(__dirname + 'e2e-tests/*.js')
-//         .pipe(protractor({
-//             configFile: 'protractor.conf.js',
-//             args: ['--baseUrl', 'http://127.0.0.1:8080']
-//         }))
-//         .on('error', function (e) {
-//             throw e
-//         });
-// });
 gulp.task('webdriver_standalone', webdriver_standalone);
 gulp.task('webdriver_update', webdriver_update);
 
@@ -132,7 +122,7 @@ gulp.task('e2e', ['webdriver_update'], function (callback) {
         })
         .on('end', callback);
 });
-// gulp.task('e2e', ['webdriver-update', 'protractor'], function(callback) {callback();});
+
 
 
 gulp.task('build', ['clean'], function () {
@@ -147,5 +137,5 @@ gulp.task('build', ['clean'], function () {
 gulp.task('default', function () {
 
     gulp.start('build');
-    gulp.start('e2e');
+   // gulp.start('e2e');
 });
