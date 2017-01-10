@@ -2,8 +2,10 @@ exports.config = {
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     seleniumServerJar: 'node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
-
-    allScriptsTimeout: 11000,
+    seleniumPort: 4444,
+    seleniumArgs: ['-browserTimeout=60'],
+    allScriptsTimeout: 60000,
+    getPageTimeout: 60000,
 
     specs: [
         'e2e-tests/*.js'
@@ -11,8 +13,8 @@ exports.config = {
 
     capabilities: {
         'browserName': 'phantomjs',
-        'phantomjs.binary.path': 'node_modules/phantomjs/bin/phantomjs',
-        'phantomjs.cli.args': ['--logfile=PATH', '--loglevel=DEBUG']
+        'phantomjs.binary.path': require('phantomjs').path,
+        'phantomjs.cli.args': ['--ignore-ssl-errors=true', '--web-security=false']
     },
 
     baseUrl: 'http://localhost:8080/',
