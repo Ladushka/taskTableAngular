@@ -8,9 +8,6 @@
   },
   "scripts": {
     "test": "karma start karma.conf.js --single-run",
-//    "selenium": "webdriver-manager update && webdriver-manager start",
-//    "e2e": "protractor protractor.conf.js"
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js"
