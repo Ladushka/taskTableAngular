@@ -10,7 +10,7 @@
     "test": "karma start karma.conf.js --single-run",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js"
+    "protractor": "protractor protractor.conf.js"
   },
   "repository": {
     "type": "git",
