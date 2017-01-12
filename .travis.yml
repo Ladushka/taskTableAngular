@@ -11,7 +11,7 @@ before_script:
 script:
   - npm test
   - gulp
-  - npm protractor
+  - protractor protractor.conf.js
 "os": "windows"
 branches:
   only:
