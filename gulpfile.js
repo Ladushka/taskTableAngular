@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     eslint = require('gulp-eslint'),
     protractor = require("gulp-protractor").protractor,
     webdriver_standalone = require("gulp-protractor").webdriver_standalone,
-    webdriver_update = require("gulp-protractor").webdriver_update;
+    webdriver_update = require("gulp-protractor").webdriver_update,
+    useref = require('gulp-useref');
 
 var config = {
     index: {
@@ -71,11 +72,22 @@ gulp.task('clean', function () {
 
 gulp.task('scripts', function () {
     return gulp.src(config.scripts.src)
+
         .pipe(concat('app.min.js'))
         .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(gulp.dest(config.scripts.dst));
 });
+
+
+gulp.task('html', function () {
+    return gulp.src('app/*.html')
+        .pipe(useref())
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', minifyCss()))
+        .pipe(gulp.dest('dist'));
+});
+
 
 gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
 

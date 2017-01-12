@@ -6,12 +6,12 @@ before_script:
   - bower install
   - npm install http-server -g
   - hs &
-  - phantomjs --webdriver=4444 &
-  - sleep 5
+#  - phantomjs --webdriver=4444 &
+#  - sleep 5
 script:
   - npm test
   - gulp
-  - protractor protractor.conf.js
+#  - protractor protractor.conf.js
 "os": "windows"
 branches:
   only:
