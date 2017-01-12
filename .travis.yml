@@ -9,8 +9,8 @@ before_script:
 script:
   - npm test
   - gulp
-  - webdriver-manager start &
-  - grunt protractor:e2e
+  - phantomjs --webdriver=4444 &
+  - protractor protractor.conf.js
 "os": "windows"
 branches:
   only:

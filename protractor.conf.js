@@ -14,9 +14,9 @@ exports.config = {
     ],
 
     capabilities: {
-        'browserName': 'chrome'//,
-        // 'phantomjs.binary.path': require('phantomjs').path,
-        // 'phantomjs.cli.args': ['--ignore-ssl-errors=true', '--web-security=false']
+        'browserName': 'phantomjs',
+        'phantomjs.binary.path': require('phantomjs').path,
+        'phantomjs.cli.args': ['--ignore-ssl-errors=true', '--web-security=false']
     },
 
     baseUrl: 'http://localhost:8080/',
