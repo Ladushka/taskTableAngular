@@ -2,7 +2,7 @@ exports.config = {
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     //directConnect: true,
-   // seleniumServerJar: 'node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
+    seleniumServerJar: 'node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
     //seleniumPort: null,
     //seleniumArgs: ['-browserTimeout=60'],
     allScriptsTimeout: 60000,
