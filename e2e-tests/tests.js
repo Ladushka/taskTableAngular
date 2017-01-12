@@ -2,19 +2,13 @@
 
 describe('my app', function () {
 
-    var webdriver = require('selenium-webdriver');
-
     describe('Start Page', function () {
-        beforeEach(function (done) {
-            window.jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+        beforeEach(function () {
             browser.manage().window().maximize();
             browser.get("");
         });
         it('should load the start page.', function () {
             expect(browser.getTitle()).toBe('My AngularJS App');
-            setTimeout(function () {
-                done.fail('Всё сломалось!');
-            }, 10000);
         });
 
         it('should be navigate to user page', function () {
