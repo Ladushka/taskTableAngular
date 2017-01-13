@@ -16,7 +16,9 @@ var gulp = require('gulp'),
     protractor = require("gulp-protractor").protractor,
     webdriver_standalone = require("gulp-protractor").webdriver_standalone,
     webdriver_update = require("gulp-protractor").webdriver_update,
-    useref = require('gulp-useref');
+    useref = require('gulp-useref'),
+    gulpif = require('gulp-if'),
+    minifyCss = require('gulp-minify-css');
 
 var config = {
     index: {
@@ -53,11 +55,12 @@ gulp.task('bower', function () {
         .pipe(gulp.dest(config.styles.dst));
 });
 
-gulp.task('styles', function () {
-    return gulp.src(config.styles.src)
-        .pipe(concat('app.css'))
-        .pipe(gulp.dest(config.styles.dst));
-});
+// gulp.task('styles', function () {
+//     return gulp.src(config.styles.src)
+//         .pipe(concat('app.css'))
+//         .pipe(gulp.dest(config.styles.dst));
+// });
+
 gulp.task('browser-sync', function () {
     browserSync({
         server: {
@@ -66,32 +69,34 @@ gulp.task('browser-sync', function () {
         notify: false
     });
 });
+
 gulp.task('clean', function () {
     return del.sync('dist');
 });
 
-gulp.task('scripts', function () {
-    return gulp.src(config.scripts.src)
+// gulp.task('scripts', function () {
+//     return gulp.src(config.scripts.src)
+//
+//         .pipe(concat('app.min.js'))
+//         .pipe(ngAnnotate())
+//         .pipe(uglify())
+//         .pipe(gulp.dest(config.scripts.dst));
+// });
 
-        .pipe(concat('app.min.js'))
-        .pipe(ngAnnotate())
-        .pipe(uglify())
+
+gulp.task('html', function () {
+
+    return gulp.src(config.index.src)
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', minifyCss()))
+        .pipe(useref())
         .pipe(gulp.dest(config.scripts.dst));
 });
 
 
-gulp.task('html', function () {
-    return gulp.src('app/*.html')
-        .pipe(useref())
-        .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', minifyCss()))
-        .pipe(gulp.dest('dist'));
-});
+gulp.task('watch', ['browser-sync', 'html'], function () {
 
-
-gulp.task('watch', ['browser-sync', 'scripts', 'styles'], function () {
-
-    gulp.watch('bower.json', ['bower']);
+    //gulp.watch('bower.json', ['bower']);
     gulp.watch(config.html.src, browserSync.reload);
     gulp.watch(config.index.src, browserSync.reload);
     gulp.watch(config.scripts.src, browserSync.reload);
@@ -136,18 +141,18 @@ gulp.task('e2e', ['webdriver_update'], function (callback) {
 });
 
 
-
 gulp.task('build', ['clean'], function () {
     gulp.start(
         // 'index',
-        'bower',
-        'styles',
-        'scripts'
+        // 'bower',
+        // 'styles',
+        // 'scripts'
+        'html'
     );
 });
 
 gulp.task('default', function () {
 
     gulp.start('build');
-   // gulp.start('e2e');
+    // gulp.start('e2e');
 });
