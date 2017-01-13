@@ -1,3 +1,5 @@
+'use strict';
+
 describe("controllers", function () {
     beforeEach(module('app'));
     beforeEach(module('app.companies'));

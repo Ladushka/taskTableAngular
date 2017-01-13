@@ -1,3 +1,5 @@
+'use strict';
+
 describe("routes", function () {
     beforeEach(module('app'));
 
