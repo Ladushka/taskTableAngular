@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.companies', ['ui.bootstrap'])
-        .controller('companiesController', function ($scope, $routeParams, $uibModal, companiesService) {
+        .controller('companiesController', function ($scope, $routeParams, companiesService, usersService) {
 
             $scope.currentPage = 1;
             $scope.itemsPerPage = 5;
@@ -18,9 +18,10 @@
                 $scope.gridApi = gridApi;
             };
 
+
             companiesService.getCompanies().then(function (response) {
                 $scope.gridOptions.data = response.data;
-
+                $scope.countUsers = usersService.getOptions(response.data.length);
                 $scope.company = (response.data || []).filter(function (item) {
                     return item.company.name == $routeParams.companyID;
                 })[0];

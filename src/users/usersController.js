@@ -17,7 +17,7 @@
 
                 usersService.getPeople().then(function (response) {
                     $scope.gridOptions.data = response.data;
-                    $scope.tests = usersService.getOptions(response.data.length);
+                    $scope.countUsers = usersService.getOptions(response.data.length);
                     ($scope.gridOptions.data || []).forEach(function (item) {
                         item.date = new Date(item.date);
                     });

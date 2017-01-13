@@ -55,12 +55,6 @@ gulp.task('bower', function () {
         .pipe(gulp.dest(config.styles.dst));
 });
 
-// gulp.task('styles', function () {
-//     return gulp.src(config.styles.src)
-//         .pipe(concat('app.css'))
-//         .pipe(gulp.dest(config.styles.dst));
-// });
-
 gulp.task('browser-sync', function () {
     browserSync({
         server: {
@@ -74,22 +68,12 @@ gulp.task('clean', function () {
     return del.sync('dist');
 });
 
-// gulp.task('scripts', function () {
-//     return gulp.src(config.scripts.src)
-//
-//         .pipe(concat('app.min.js'))
-//         .pipe(ngAnnotate())
-//         .pipe(uglify())
-//         .pipe(gulp.dest(config.scripts.dst));
-// });
-
-
 gulp.task('html', function () {
 
     return gulp.src(config.index.src)
+        .pipe(useref())
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulpif('*.css', minifyCss()))
-        .pipe(useref())
         .pipe(gulp.dest(config.scripts.dst));
 });
 

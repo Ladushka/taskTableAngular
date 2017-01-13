@@ -1,10 +1,22 @@
 <div>
     <div id="grid1" ui-grid="gridOptions" ui-grid-pagination ui-grid-selection
          class="grid"></div>
-    <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"
-        ng-change="pageChanged()"></ul>
-
-    <div>
-        <button type="button" id="addData" class="btn btn-success" ng-click="openCompany()" translate>ADD</button>
+    <div class="col-sm-4">
+        <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="gridOptions.paginationPageSize"
+            ng-change="pageChanged()"></ul>
+        <ul class="nav nav-pills">
+            <li>
+                {{'ITEMS PER PAGE' | translate}}:
+            </li>
+            <li>
+                <select class="form-control"
+                        ng-model="gridOptions.paginationPageSize"
+                        ng-options="countUser for countUser in countUsers"></select>
+            </li>
+            <li ng-controller="companyModalController">
+                <button type="button" id="addData" class="btn btn-success" ng-click="addCompany()" translate>ADD
+                </button>
+            </li>
+        </ul>
     </div>
 </div>

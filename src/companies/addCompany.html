@@ -1,0 +1,33 @@
+<div class="modal-header">
+    {{'EDIT' | translate}} {{companyEdit.company.name}}
+</div>
+<div class="modal-body" id="modal-body">
+    <!--Form-->
+    <form name="editForm" novalidate class="simple-form">
+
+        <div class="form-group">
+            <label>{{'COMPANY_NAME' | translate}}:</label>
+            <input name="company_name" type="text" class="form-control" ng-model="companyNew.company.name" required/>
+        </div>
+        <div class="form-group">
+            <label>{{'COUNTRY' | translate}}:</label>
+            <input name="editCompany" type="text" class="form-control" ng-model="companyNew.address.country"
+                   uib-typeahead="country for country in countries | filter:$viewValue | limitTo:8" required/>
+        </div>
+        <div class="form-group">
+            <label>{{'CITY' | translate}}:</label>
+            <input name="editCompany" type="text" class="form-control" ng-model="companyNew.address.city"
+                   required/>
+        </div>
+        <div class="form-group">
+            <label>{{'STREET' | translate}}:</label>
+            <input name="editCompany" type="text" class="form-control" ng-model="companyNew.address.street"
+                   required/>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <input type="submit" class="btn btn-primary" ng-click="$close(companyNew)" value="Submit"
+           ng-disabled="editForm.$invalid"/>
+    <button type="button" class="btn btn-default" ng-click="cancelCompany(companyNew)" translate>CANCEL</button>
+</div>

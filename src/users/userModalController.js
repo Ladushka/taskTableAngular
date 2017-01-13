@@ -34,6 +34,8 @@
                 if (!user.id) {
                     user.id = $scope.gridOptions.data.length + 1;
                     $scope.gridOptions.data.push(user);
+                    $scope.countUsers.push(user.id);
+
                 } else {
                     $scope.gridOptions.data = ($scope.gridOptions.data || []).map(function (item) {
                         if (item.id === user.id) {
@@ -70,7 +72,6 @@
                     delete $scope.user;
                 }
             };
-
 
 
         });
