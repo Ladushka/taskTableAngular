@@ -18,8 +18,10 @@
             };
 
             $scope.save=function (companyNew) {
-                $scope.gridOptions.data.push(companyNew);
-                $scope.countUsers.push($scope.gridOptions.data.length);
+                if(companyNew) {
+                    $scope.gridOptions.data.push(companyNew);
+                    $scope.countUsers.push($scope.gridOptions.data.length);
+                }
             };
 
             companiesService.getCountries().then(function (response) {

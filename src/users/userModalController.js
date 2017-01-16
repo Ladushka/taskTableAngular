@@ -26,24 +26,27 @@
                 });
                 modalInstance.result.then(function (user) {
                     $scope.save(user);
+                    console.log(user);
                 });
 
             };
 
             $scope.save = function (user) {
-                if (!user.id) {
-                    user.id = $scope.gridOptions.data.length + 1;
-                    $scope.gridOptions.data.push(user);
-                    $scope.countUsers.push(user.id);
+                if(user) {
+                    if (!user.id) {
+                        user.id = $scope.gridOptions.data.length + 1;
+                        $scope.gridOptions.data.push(user);
+                        $scope.countUsers.push(user.id);
 
-                } else {
-                    $scope.gridOptions.data = ($scope.gridOptions.data || []).map(function (item) {
-                        if (item.id === user.id) {
-                            return item = user;
-                        }
-                        return item;
-                    });
-                    delete $scope.user;
+                    } else {
+                        $scope.gridOptions.data = ($scope.gridOptions.data || []).map(function (item) {
+                            if (item.id === user.id) {
+                                return item = user;
+                            }
+                            return item;
+                        });
+                        delete $scope.user;
+                    }
                 }
             };
 
@@ -61,18 +64,6 @@
                 $scope.popup = datepickerService.popup;
                 datepickerService.openDatepicker($scope.popup);
             };
-
-            $scope.cancelEditContent = function () {
-                if ($scope.gridApi.selection.getSelectedRows().length === 1) {
-                    $scope.user = angular.copy($scope.gridApi.selection.getSelectedRows())[0];
-                } else {
-                    for (var i = 0; i < document.forms.editForm.elements.length; i++) {
-                        document.forms.editForm.elements[i].value = '';
-                    }
-                    delete $scope.user;
-                }
-            };
-
 
         });
 
